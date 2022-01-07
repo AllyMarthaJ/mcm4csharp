@@ -16,24 +16,19 @@ namespace mcm4csharp.v1.Client {
 			this.authClient = new HttpClient ();
 			authClient.DefaultRequestHeaders.Authorization =
 				new AuthenticationHeaderValue (type.ToString (), token);
-			// set content-type header on request creation
 		}
 
-		private HttpRequestMessage prepareRequest<T> (HttpMethod method, Uri uri, bool hasBody, T body)
+		/// <summary>
+		/// Builds a URI from the base uri and given endpoint with path parameters.
+		/// </summary>
+		/// <param name="endpoint">The endpoint for the request.</param>
+		/// <param name="pathParams">The parameters to use in the URI.</param>
+		/// <returns>Built URI.</returns>
+		private Uri buildUri (string endpoint, Dictionary<string, string>? pathParams = null)
 		{
-			var request = new HttpRequestMessage (method, uri);
-
-			// optional headers - we use json
-			request.Content = hasBody ? JsonContent.Create (body) : new StringContent ("");
-			request.Content.Headers.ContentType = new MediaTypeHeaderValue ("application/json");
-
-			return request;
-		}
-
-		private Uri buildUri (string endpoint, Dictionary<string, string> pathParams = null)
-		{
-			var uriBuilder = new UriBuilder (BaseUri);
-			uriBuilder.Path = endpoint;
+			UriBuilder uriBuilder = new (BaseUri) {
+				Path = endpoint
+			};
 
 			var query = HttpUtility.ParseQueryString ("");
 
@@ -47,6 +42,31 @@ namespace mcm4csharp.v1.Client {
 			return uriBuilder.Uri;
 		}
 
+		/// <summary>
+		/// Builds a request from the given method, URI, and body.
+		/// </summary>
+		/// <typeparam name="T">The type of body to send.</typeparam>
+		/// <param name="method">The method to use to send request.</param>
+		/// <param name="uri">The URI to make request to.</param>
+		/// <param name="hasBody">Whether JSON body should be specified.</param>
+		/// <param name="body">Post body to use.</param>
+		/// <returns>Built request.</returns>
+		private HttpRequestMessage prepareRequest<T> (HttpMethod method, Uri uri, bool hasBody, T body)
+		{
+			HttpRequestMessage request = new (method, uri) {
+				Content = hasBody ? JsonContent.Create (body) : new StringContent ("")
+			};
+			request.Content.Headers.ContentType = new MediaTypeHeaderValue ("application/json");
+
+			return request;
+		}
+
+		/// <summary>
+		/// Sends a request and compiles the given response.
+		/// </summary>
+		/// <typeparam name="T">The type of response to expect.</typeparam>
+		/// <param name="request">The request to send.</param>
+		/// <returns>Compiled response.</returns>
 		private async Task<Response<T>> buildResponse<T> (HttpRequestMessage request)
 		{
 			var sent = await authClient.SendAsync (request);
