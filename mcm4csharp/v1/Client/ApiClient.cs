@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Web;
+using mcm4csharp.v1.Data.Alerts;
 using mcm4csharp.v1.Data.Content;
 
 namespace mcm4csharp.v1.Client {
@@ -51,10 +52,10 @@ namespace mcm4csharp.v1.Client {
 		/// <param name="hasBody">Whether JSON body should be specified.</param>
 		/// <param name="body">Post body to use.</param>
 		/// <returns>Built request.</returns>
-		private HttpRequestMessage prepareRequest<T> (HttpMethod method, Uri uri, bool hasBody, T body)
+		private HttpRequestMessage prepareRequest (HttpMethod method, Uri uri, object? body = null)
 		{
 			HttpRequestMessage request = new (method, uri) {
-				Content = hasBody ? JsonContent.Create (body) : new StringContent ("")
+				Content = JsonContent.Create(body)
 			};
 			request.Content.Headers.ContentType = new MediaTypeHeaderValue ("application/json");
 
@@ -71,11 +72,10 @@ namespace mcm4csharp.v1.Client {
 		{
 			var sent = await authClient.SendAsync (request);
 
-			Console.WriteLine (await sent.Content.ReadAsStringAsync ());
 			var response = await sent.Content.ReadFromJsonAsync<Response<T>> ();
 
 			uint retryAfterMs = uint.Parse (sent.Headers.GetValues ("Retry-After").First ());
-
+			
 			response.RetryAfterMilliseconds = retryAfterMs;
 
 			return response;
@@ -83,11 +83,18 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<string>> GetHealthAsync ()
 		{
-			var healthUri = buildUri (Endpoints.HEALTH);
-			var healthReq = prepareRequest<string> (HttpMethod.Get, healthUri, false, "");
+			var healthUri = this.buildUri (Endpoints.HEALTH);
+			var healthReq = this.prepareRequest (HttpMethod.Get, healthUri, null);
 
+			return await this.buildResponse<string> (healthReq);
+		}
 
-			return await buildResponse<string> (healthReq);
+		public async Task<Response<Alert[]>> GetUnreadAlertsAsync (Sortable? sortingOptions = null)
+		{
+			var alertsUri = this.buildUri (Endpoints.ALERTS);
+			var alertsReq = this.prepareRequest (HttpMethod.Get, alertsUri, sortingOptions);
+
+			return await this.buildResponse<Alert []> (alertsReq);
 		}
 	}
 }
