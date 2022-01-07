@@ -6,4 +6,22 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="v11\" />
+    <None Remove="v1\Data\" />
+    <None Remove="v1\Data\Alerts\" />
+    <None Remove="v1\Data\Conversations\" />
+    <None Remove="v1\Data\Members\" />
+    <None Remove="v1\Data\Resources\" />
+    <None Remove="v1\Data\Threads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="v1\" />
+    <Folder Include="v1\Data\" />
+    <Folder Include="v1\Data\Alerts\" />
+    <Folder Include="v1\Data\Conversations\" />
+    <Folder Include="v1\Data\Members\" />
+    <Folder Include="v1\Data\Resources\" />
+    <Folder Include="v1\Data\Threads\" />
+  </ItemGroup>
 </Project>
