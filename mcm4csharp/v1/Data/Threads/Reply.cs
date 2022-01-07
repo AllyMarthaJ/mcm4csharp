@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 
 namespace mcm4csharp.v1.Data.Threads {
-	public class Reply {
+	public struct Reply {
 		[JsonPropertyName ("reply_id")]
 		public uint ReplyId { get; set; }
 
