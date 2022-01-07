@@ -21,6 +21,7 @@ namespace mcm4csharp.v1.Client {
 				new AuthenticationHeaderValue (type.ToString (), token);
 		}
 
+
 		/// <summary>
 		/// Builds a URI from the base uri and given endpoint with path parameters.
 		/// </summary>
@@ -88,6 +89,11 @@ namespace mcm4csharp.v1.Client {
 
 			return response;
 		}
+
+		// Structure
+		// Path replacements -> parameters
+		// Query parameters -> DTOs
+		// Request body -> DTOs
 
 		/*
 		 * API Health
@@ -159,8 +165,8 @@ namespace mcm4csharp.v1.Client {
 		public async Task<Response<uint>> ReplyUnreadConversationAsync (uint id, MessageContent content)
 		{
 			var convoUri = this.buildUri (Endpoints.CONVERSATIONS_ID, replacements: new () {
-					{ "{id}", id.ToString () }
-				});
+				{ "{id}", id.ToString () }
+			});
 			var convoReq = this.prepareRequest (HttpMethod.Post, convoUri, content);
 
 			return await this.buildResponseAsync<uint> (convoReq);
@@ -170,13 +176,104 @@ namespace mcm4csharp.v1.Client {
 		 * Members
 		 */
 
-		public async Task<Response<Member>> GetSelfAsync()
+		public async Task<Response<Member>> GetSelfAsync ()
 		{
-			var selfUri = this.buildUri (Endpoints.MEMBERS_SELF);
+			var selfUri = this.buildUri (Endpoints.MEMBERS, replacements: new () {
+				{ "{id}", "self" }
+			});
 			var selfReq = this.prepareRequest (HttpMethod.Get, selfUri);
 
 			return await this.buildResponseAsync<Member> (selfReq);
 		}
+
+		public async Task<Response<string>> ModifySelfAsync (SelfUpdateContent content)
+		{
+			var selfUri = this.buildUri (Endpoints.MEMBERS, replacements: new () {
+				{ "{id}", "self" }
+			});
+			var selfReq = this.prepareRequest (HttpMethod.Patch, selfUri, content);
+
+			return await this.buildResponseAsync<string> (selfReq);
+		}
+
+		public async Task<Response<Member>> GetUserAsync (uint id)
+		{
+			var selfUri = this.buildUri (Endpoints.MEMBERS, replacements: new () {
+				{ "{id}", id.ToString () }
+			});
+			var selfReq = this.prepareRequest (HttpMethod.Get, selfUri);
+
+			return await this.buildResponseAsync<Member> (selfReq);
+		}
+
+		public async Task<Response<Member>> GetUserAsync (string username)
+		{
+			var selfUri = this.buildUri (Endpoints.MEMBERS, replacements: new () {
+				{ "{name}", $"username/{username}" }
+			});
+			var selfReq = this.prepareRequest (HttpMethod.Get, selfUri);
+
+			return await this.buildResponseAsync<Member> (selfReq);
+		}
+
+		public async Task<Response<Ban []>> GetBansAsync ()
+		{
+			var bansUri = this.buildUri (Endpoints.MEMBERS, replacements: new() {
+				{ "{id}", "bans" }
+			});
+			var bansReq = this.prepareRequest (HttpMethod.Get, bansUri);
+
+			return await this.buildResponseAsync<Ban []> (bansReq);
+		}
+
+		/*
+		 * Profile posts
+		 */
+
+		public async Task<Response<ProfilePost []>> GetProfilePostsAsync (Sortable? sortingOptions = null)
+		{
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
+			opt.Add ("id", "");
+
+			var postsUri = this.buildUri (Endpoints.PROFILE_POSTS, pathParams: opt);
+			var postsReq = this.prepareRequest (HttpMethod.Get, postsUri);
+
+			return await this.buildResponseAsync<ProfilePost []> (postsReq);
+		}
+
+		public async Task<Response<ProfilePost>> GetProfilePostAsync (uint id)
+		{
+			var postUri = this.buildUri (Endpoints.PROFILE_POSTS, pathParams: new () {
+				{ "{id}", id.ToString () },
+			});
+			var postReq = this.prepareRequest (HttpMethod.Get, postUri);
+
+			return await this.buildResponseAsync<ProfilePost> (postReq);
+		}
+
+		public async Task<Response<string>> ModifyProfilePostAsync (uint id, MessageContent content)
+		{
+			var postUri = this.buildUri (Endpoints.PROFILE_POSTS, pathParams: new () {
+				{ "{id}", id.ToString () }
+			});
+			var postReq = this.prepareRequest (HttpMethod.Patch, postUri, content);
+
+			return await this.buildResponseAsync<string> (postReq);
+		}
+
+		public async Task<Response<string>> DeleteProfilePost (uint id)
+		{
+			var postUri = this.buildUri (Endpoints.PROFILE_POSTS, pathParams: new () {
+				{ "{id}", id.ToString () }
+			});
+			var postReq = this.prepareRequest (HttpMethod.Delete, postUri);
+
+			return await this.buildResponseAsync<string> (postReq);
+		}
+
+		/*
+		 * Resources
+		 */
 	}
 }
 

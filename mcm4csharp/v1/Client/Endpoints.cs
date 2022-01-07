@@ -7,7 +7,8 @@ namespace mcm4csharp.v1.Client
 		public const string ALERTS = "v1/alerts";
 		public const string CONVERSATIONS = "v1/conversations";
 		public const string CONVERSATIONS_ID = "v1/conversations/{id}/replies";
-		public const string MEMBERS_SELF = "v1/members/self";
+		public const string MEMBERS = "v1/members/{id}";
+		public const string PROFILE_POSTS = "v1/members/self/profile-posts/{id}";
 	}
 }
 
