@@ -7,6 +7,8 @@ using mcm4csharp.v1.Data.Alerts;
 using mcm4csharp.v1.Data.Content;
 using mcm4csharp.v1.Data.Conversations;
 using mcm4csharp.v1.Data.Members;
+using mcm4csharp.v1.Data.Resources;
+using Version = mcm4csharp.v1.Data.Resources.Version;
 
 namespace mcm4csharp.v1.Client {
 	public class ApiClient {
@@ -218,7 +220,7 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<Ban []>> GetBansAsync ()
 		{
-			var bansUri = this.buildUri (Endpoints.MEMBERS, replacements: new() {
+			var bansUri = this.buildUri (Endpoints.MEMBERS, replacements: new () {
 				{ "{id}", "bans" }
 			});
 			var bansReq = this.prepareRequest (HttpMethod.Get, bansUri);
@@ -232,7 +234,7 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<ProfilePost []>> GetProfilePostsAsync (Sortable? sortingOptions = null)
 		{
-			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : new ();
 			opt.Add ("id", "");
 
 			var postsUri = this.buildUri (Endpoints.PROFILE_POSTS, pathParams: opt);
@@ -261,7 +263,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<string> (postReq);
 		}
 
-		public async Task<Response<string>> DeleteProfilePost (uint id)
+		public async Task<Response<string>> DeleteProfilePostAsync (uint id)
 		{
 			var postUri = this.buildUri (Endpoints.PROFILE_POSTS, pathParams: new () {
 				{ "{id}", id.ToString () }
@@ -274,6 +276,158 @@ namespace mcm4csharp.v1.Client {
 		/*
 		 * Resources
 		 */
+
+		public async Task<Response<BasicResource []>> GetPublicResourcesAsync (Sortable? sortingOptions = null)
+		{
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : new ();
+			opt.Add ("{id}", "");
+
+			var resUri = this.buildUri (Endpoints.RESOURCES, pathParams: opt);
+			var resReq = this.prepareRequest (HttpMethod.Get, resUri, sortingOptions);
+
+			return await this.buildResponseAsync<BasicResource []> (resReq);
+		}
+
+		public async Task<Response<BasicResource []>> GetOwnedResourcesAsync (Sortable? sortingOptions = null)
+		{
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : new ();
+			opt.Add ("{id}", "owned");
+
+			var resUri = this.buildUri (Endpoints.RESOURCES, pathParams: opt);
+			var resReq = this.prepareRequest (HttpMethod.Get, resUri, sortingOptions);
+
+			return await this.buildResponseAsync<BasicResource []> (resReq);
+		}
+
+		public async Task<Response<BasicResource []>> GetCollaboratedResourcesAsync (Sortable? sortingOptions = null)
+		{
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : new ();
+			opt.Add ("{id}", "collaborated");
+
+			var resUri = this.buildUri (Endpoints.RESOURCES, pathParams: opt);
+			var resReq = this.prepareRequest (HttpMethod.Get, resUri, sortingOptions);
+
+			return await this.buildResponseAsync<BasicResource []> (resReq);
+		}
+
+		public async Task<Response<BasicResource>> GetResourceAsync (uint id)
+		{
+			var resUri = this.buildUri (Endpoints.RESOURCES, pathParams: new () {
+				{ "{id}", id.ToString () }
+			});
+			var resReq = this.prepareRequest (HttpMethod.Get, resUri);
+
+			return await this.buildResponseAsync<BasicResource> (resReq);
+		}
+
+		public async Task<Response<string>> UpdateResourceAsync (uint id, ResourceContent content)
+		{
+			var resUri = this.buildUri (Endpoints.RESOURCES, pathParams: new () {
+				{ "{id}", id.ToString () }
+			});
+			var resReq = this.prepareRequest (HttpMethod.Get, resUri, content);
+
+			return await this.buildResponseAsync<string> (resReq);
+		}
+
+		/*
+		 * Versions
+		 */
+
+		public async Task<Response<Version []>> GetResourceVersionsAsync (uint id, Sortable? sortingOptions = null)
+		{
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : new ();
+			opt.Add ("{r_id}", id.ToString ());
+			opt.Add ("{v_id}", "");
+
+			var verUri = this.buildUri (Endpoints.VERSIONS, pathParams: opt);
+			var verReq = this.prepareRequest (HttpMethod.Get, verUri, sortingOptions);
+
+			return await this.buildResponseAsync<Version []> (verReq);
+		}
+
+		public async Task<Response<Version>> GetLatestVersionAsync (uint id)
+		{
+			var verUri = this.buildUri (Endpoints.VERSIONS, pathParams: new () {
+				{ "{r_id}", id.ToString () },
+				{ "{v_id}", "latest" }
+			});
+			var verReq = this.prepareRequest (HttpMethod.Get, verUri);
+
+			return await this.buildResponseAsync<Version> (verReq);
+		}
+
+		public async Task<Response<Version>> GetVersionAsync (uint resId, uint versionId)
+		{
+			var verUri = this.buildUri (Endpoints.VERSIONS, pathParams: new () {
+				{ "{r_id}", resId.ToString () },
+				{ "{v_id}", versionId.ToString () }
+			});
+			var verReq = this.prepareRequest (HttpMethod.Get, verUri);
+
+			return await this.buildResponseAsync<Version> (verReq);
+		}
+
+		public async Task<Response<Version>> DeleteVersionAsync (uint resId, uint versionId)
+		{
+			var verUri = this.buildUri (Endpoints.VERSIONS, pathParams: new () {
+				{ "{r_id}", resId.ToString () },
+				{ "{v_id}", versionId.ToString () }
+			});
+			var verReq = this.prepareRequest (HttpMethod.Delete, verUri);
+
+			return await this.buildResponseAsync<Version> (verReq);
+		}
+
+		/*
+		 * Updates
+		 */
+
+		public async Task<Response<Update []>> GetResourceUpdatesAsync (uint id, Sortable? sortingOptions = null)
+		{
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : new ();
+			opt.Add ("{r_id}", id.ToString ());
+			opt.Add ("{u_id}", "");
+
+			var updateUri = this.buildUri (Endpoints.UPDATES, pathParams: opt);
+			var updateReq = this.prepareRequest (HttpMethod.Get, updateUri, sortingOptions);
+
+			return await this.buildResponseAsync<Update []> (updateReq);
+		}
+
+		public async Task<Response<Update>> GetLatestUpdateAsync (uint id)
+		{
+			var updateUri = this.buildUri (Endpoints.UPDATES, pathParams: new () {
+				{ "{r_id}", id.ToString () },
+				{ "{u_id}", "latest" }
+			});
+			var updateReq = this.prepareRequest (HttpMethod.Get, updateUri);
+
+			return await this.buildResponseAsync<Update> (updateReq);
+		}
+
+		public async Task<Response<Update>> GetUpdateAsync (uint resId, uint updateId)
+		{
+			var updateUri = this.buildUri (Endpoints.UPDATES, pathParams: new () {
+				{ "{r_id}", resId.ToString () },
+				{ "{u_id}", updateId.ToString () }
+			});
+			var updateReq = this.prepareRequest (HttpMethod.Get, updateUri);
+
+			return await this.buildResponseAsync<Update> (updateReq);
+		}
+
+		public async Task<Response<Update>> DeleteUpdateAsync (uint resId, uint updateId)
+		{
+			var updateUri = this.buildUri (Endpoints.UPDATES, pathParams: new () {
+				{ "{r_id}", resId.ToString () },
+				{ "{u_id}", updateId.ToString () }
+			});
+			var updateReq = this.prepareRequest (HttpMethod.Delete, updateUri);
+
+			return await this.buildResponseAsync<Update> (updateReq);
+		}
+
 	}
 }
 
