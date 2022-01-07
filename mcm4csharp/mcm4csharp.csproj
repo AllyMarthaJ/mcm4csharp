@@ -14,6 +14,8 @@
     <None Remove="v1\Data\Members\" />
     <None Remove="v1\Data\Resources\" />
     <None Remove="v1\Data\Threads\" />
+    <None Remove="v1\Client\" />
+    <None Remove="v1\Data\Content\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="v1\" />
@@ -23,5 +25,7 @@
     <Folder Include="v1\Data\Members\" />
     <Folder Include="v1\Data\Resources\" />
     <Folder Include="v1\Data\Threads\" />
+    <Folder Include="v1\Client\" />
+    <Folder Include="v1\Data\Content\" />
   </ItemGroup>
 </Project>
