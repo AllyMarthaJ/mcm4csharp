@@ -7,7 +7,7 @@ namespace mcm4csharp.v1.Data.Content
 	{
 		[JsonPropertyName("purchaser_id")]
 		[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-		public uint PurchaserId { get; set; }
+		public ulong PurchaserId { get; set; }
 
 		[JsonPropertyName("permanent")]
 		public bool Permanent { get; set; }
@@ -18,11 +18,11 @@ namespace mcm4csharp.v1.Data.Content
 
 		[JsonPropertyName("start_date")]
 		[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-		public uint StartDate { get; set; }
+		public ulong StartDate { get; set; }
 
 		[JsonPropertyName("end_date")]
 		[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-		public uint EndDate { get; set; }
+		public ulong EndDate { get; set; }
 	}
 }
 

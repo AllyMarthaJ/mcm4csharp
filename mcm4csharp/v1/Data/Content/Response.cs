@@ -13,7 +13,7 @@ namespace mcm4csharp.v1.Data.Content {
 		public Error Error { get; set; }
 
 		// header value
-		public uint RetryAfterMilliseconds { get; set; }
+		public ulong RetryAfterMilliseconds { get; set; }
 	}
 }
 

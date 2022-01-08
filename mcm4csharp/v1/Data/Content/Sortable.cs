@@ -19,7 +19,7 @@ namespace mcm4csharp.v1.Data.Content {
 		/// Page number >= 1.
 		/// </summary>
 		[JsonPropertyName ("page")]
-		public uint Page { get; set; }
+		public ulong Page { get; set; }
 
 		public Dictionary<string, string> ToDict () =>
 			new () {

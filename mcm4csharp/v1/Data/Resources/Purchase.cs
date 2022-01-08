@@ -4,13 +4,13 @@ using System.Text.Json.Serialization;
 namespace mcm4csharp.v1.Data.Resources {
 	public struct Purchase {
 		[JsonPropertyName ("purchase_id")]
-		public uint PurchaseId { get; set; }
+		public ulong PurchaseId { get; set; }
 
 		[JsonPropertyName ("purchaser_id")]
-		public uint PurchaserId { get; set; }
+		public ulong PurchaserId { get; set; }
 
 		[JsonPropertyName ("license_id")]
-		public uint LicenseId { get; set; }
+		public ulong LicenseId { get; set; }
 
 		[JsonPropertyName ("renewal")]
 		public bool Renewal { get; set; }
@@ -25,10 +25,10 @@ namespace mcm4csharp.v1.Data.Resources {
 		public string Currency { get; set; }
 
 		[JsonPropertyName ("purchase_date")]
-		public uint PurchaseDate { get; set; }
+		public ulong PurchaseDate { get; set; }
 
 		[JsonPropertyName ("validation_date")]
-		public uint ValidationDate { get; set; }
+		public ulong ValidationDate { get; set; }
 	}
 }
 

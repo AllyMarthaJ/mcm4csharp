@@ -4,10 +4,10 @@ using System.Text.Json.Serialization;
 namespace mcm4csharp.v1.Data.Resources {
 	public struct BasicResource {
 		[JsonPropertyName ("resource_id")]
-		public uint ResourceId { get; set; }
+		public ulong ResourceId { get; set; }
 
 		[JsonPropertyName ("author_id")]
-		public uint AuthorId { get; set; }
+		public ulong AuthorId { get; set; }
 
 		[JsonPropertyName ("title")]
 		public string Title { get; set; }

@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['lastactivitydate_0',['LastActivityDate',['../structmcm4csharp_1_1v1_1_1_data_1_1_members_1_1_member.html#ad37ca78cd4abb78bcc0d7a1ae4d757ae',1,'mcm4csharp::v1::Data::Members::Member']]],
-  ['lastmessagedate_1',['LastMessageDate',['../structmcm4csharp_1_1v1_1_1_data_1_1_conversations_1_1_conversation.html#af444b16cbd5cc8a4cf902ee9f7c196a3',1,'mcm4csharp.v1.Data.Conversations.Conversation.LastMessageDate()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_threads_1_1_basic_thread.html#abce97ca6000389ac3dc621e1bb4b7057',1,'mcm4csharp.v1.Data.Threads.BasicThread.LastMessageDate()']]],
-  ['lastpostdate_2',['LastPostDate',['../structmcm4csharp_1_1v1_1_1_data_1_1_threads_1_1_thread.html#a969fea865d684d3752e3b080ef6f4ebd',1,'mcm4csharp::v1::Data::Threads::Thread']]],
-  ['lastreaddate_3',['LastReadDate',['../structmcm4csharp_1_1v1_1_1_data_1_1_conversations_1_1_conversation.html#adfcaf044eb3e799ddf7ceaed8e245eba',1,'mcm4csharp::v1::Data::Conversations::Conversation']]],
-  ['lastreleasedate_4',['LastReleaseDate',['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_resource.html#af445515142d4c7d96c48d3e5ea325b8d',1,'mcm4csharp::v1::Data::Resources::Resource']]],
-  ['licenseid_5',['LicenseId',['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_license.html#a5d5d5c85c17a68aea42eab9b000eba1a',1,'mcm4csharp.v1.Data.Resources.License.LicenseId()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_purchase.html#a2797727c79f48e423a6fe026570180ed',1,'mcm4csharp.v1.Data.Resources.Purchase.LicenseId()']]]
+  ['lastactivitydate_0',['LastActivityDate',['../structmcm4csharp_1_1v1_1_1_data_1_1_members_1_1_member.html#ac47e31a7943ddebd0769d0dd61621fb5',1,'mcm4csharp::v1::Data::Members::Member']]],
+  ['lastmessagedate_1',['LastMessageDate',['../structmcm4csharp_1_1v1_1_1_data_1_1_conversations_1_1_conversation.html#aad2315e0b1909822c8c372e87f2ff073',1,'mcm4csharp.v1.Data.Conversations.Conversation.LastMessageDate()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_threads_1_1_basic_thread.html#a1f8396afa7c53c9a7e1fc1c9d798071b',1,'mcm4csharp.v1.Data.Threads.BasicThread.LastMessageDate()']]],
+  ['lastpostdate_2',['LastPostDate',['../structmcm4csharp_1_1v1_1_1_data_1_1_threads_1_1_thread.html#a89b0934cbed7c4f59208c44a530487df',1,'mcm4csharp::v1::Data::Threads::Thread']]],
+  ['lastreaddate_3',['LastReadDate',['../structmcm4csharp_1_1v1_1_1_data_1_1_conversations_1_1_conversation.html#a936862abd67c3fae600e1acc12bda3e0',1,'mcm4csharp::v1::Data::Conversations::Conversation']]],
+  ['lastreleasedate_4',['LastReleaseDate',['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_resource.html#a9534c42e0b6b4b61e4f44bb2a947ee69',1,'mcm4csharp::v1::Data::Resources::Resource']]],
+  ['licenseid_5',['LicenseId',['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_license.html#ab0fb6a041f17ca4c92a88767ead36b92',1,'mcm4csharp.v1.Data.Resources.License.LicenseId()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_purchase.html#a8dd05d7e27264e0049875595e75b1c04',1,'mcm4csharp.v1.Data.Resources.Purchase.LicenseId()']]]
 ];

@@ -4,8 +4,8 @@ using mcm4csharp.v1.Data.Content;
 using mcm4csharp.v1.Data.Conversations;
 
 public class Program {
-	private static uint conversationId = 0;
-	private static uint lastMessageId = 0;
+	private static ulong conversationId = 0;
+	private static ulong lastMessageId = 0;
 	private static ApiClient chatClient;
 
 	public static async Task Main (string [] args)
@@ -76,26 +76,26 @@ Otherwise, you can opt to create a new conversation here.
 			if (input == "n" || input == "N")
 				conversationId = await createConversation ();
 			else
-				conversationId = UInt32.Parse (input);
+				conversationId = ulong32.Parse (input);
 			return true;
 		} catch {
 			return false;
 		}
 	}
 
-	private static async Task<uint> createConversation ()
+	private static async Task<ulong> createConversation ()
 	{
 		Console.WriteLine ("Enter the IDs of users you wish to open a conversation with, separated by ',':");
 		var users = Console.ReadLine ();
 
-		uint [] userIds;
+		ulong [] userIds;
 		string title;
 		string message;
 
 		try {
 			userIds = users
 				.Split (",")
-				.Select (u => UInt32.Parse (u))
+				.Select (u => ulong32.Parse (u))
 				.ToArray ();
 		} catch {
 			return 0;

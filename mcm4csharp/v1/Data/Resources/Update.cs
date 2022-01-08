@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace mcm4csharp.v1.Data.Resources {
 	public struct Update {
 		[JsonPropertyName ("update_id")]
-		public uint UpdateId { get; set; }
+		public ulong UpdateId { get; set; }
 
 		[JsonPropertyName ("title")]
 		public string Title { get; set; }
@@ -13,7 +13,7 @@ namespace mcm4csharp.v1.Data.Resources {
 		public string Message { get; set; }
 
 		[JsonPropertyName ("update_date")]
-		public uint UpdateDate { get; set; }
+		public ulong UpdateDate { get; set; }
 	}
 }
 

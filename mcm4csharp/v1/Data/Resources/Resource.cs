@@ -4,10 +4,10 @@ using System.Text.Json.Serialization;
 namespace mcm4csharp.v1.Data.Resources {
 	public struct Resource {
 		[JsonPropertyName ("resource_id")]
-		public uint ResourceId { get; set; }
+		public ulong ResourceId { get; set; }
 
 		[JsonPropertyName ("author_id")]
-		public uint AuthorId { get; set; }
+		public ulong AuthorId { get; set; }
 
 		[JsonPropertyName ("title")]
 		public string Title { get; set; }
@@ -19,16 +19,16 @@ namespace mcm4csharp.v1.Data.Resources {
 		public string Description { get; set; }
 
 		[JsonPropertyName ("release_date")]
-		public uint ReleaseDate { get; set; }
+		public ulong ReleaseDate { get; set; }
 
 		[JsonPropertyName ("last_release_date")]
-		public uint LastReleaseDate { get; set; }
+		public ulong LastReleaseDate { get; set; }
 
 		[JsonPropertyName ("category_title")]
 		public string CategoryTitle { get; set; }
 
 		[JsonPropertyName ("current_version_id")]
-		public uint CurrentVersionId { get; set; }
+		public ulong CurrentVersionId { get; set; }
 
 		[JsonPropertyName ("price")]
 		public float Price { get; set; }
@@ -37,13 +37,13 @@ namespace mcm4csharp.v1.Data.Resources {
 		public string Currency { get; set; }
 
 		[JsonPropertyName ("purchase_count")]
-		public uint PurchaseCount { get; set; }
+		public ulong PurchaseCount { get; set; }
 
 		[JsonPropertyName ("download_count")]
-		public uint DownloadCount { get; set; }
+		public ulong DownloadCount { get; set; }
 
 		[JsonPropertyName ("review_count")]
-		public uint ReviewCount { get; set; }
+		public ulong ReviewCount { get; set; }
 
 		[JsonPropertyName ("review_average")]
 		public float ReviewAverage { get; set; }

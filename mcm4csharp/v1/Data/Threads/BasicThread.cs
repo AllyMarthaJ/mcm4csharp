@@ -4,22 +4,22 @@ using System.Text.Json.Serialization;
 namespace mcm4csharp.v1.Data.Threads {
 	public struct BasicThread {
 		[JsonPropertyName ("thread_id")]
-		public uint ThreadId { get; set; }
+		public ulong ThreadId { get; set; }
 
 		[JsonPropertyName ("title")]
 		public string Title { get; set; }
 
 		[JsonPropertyName ("reply_count")]
-		public uint ReplyCount { get; set; }
+		public ulong ReplyCount { get; set; }
 
 		[JsonPropertyName ("view_count")]
-		public uint ViewCount { get; set; }
+		public ulong ViewCount { get; set; }
 
 		[JsonPropertyName ("creation_date")]
-		public uint CreationDate { get; set; }
+		public ulong CreationDate { get; set; }
 
 		[JsonPropertyName ("last_message_date")]
-		public uint LastMessageDate { get; set; }
+		public ulong LastMessageDate { get; set; }
 	}
 }
 

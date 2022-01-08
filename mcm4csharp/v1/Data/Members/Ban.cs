@@ -4,13 +4,13 @@ using System.Text.Json.Serialization;
 namespace mcm4csharp.v1.Data.Members {
 	public struct Ban {
 		[JsonPropertyName ("member_id")]
-		public uint MemberId { get; set; }
+		public ulong MemberId { get; set; }
 
 		[JsonPropertyName ("banned_by_id")]
-		public uint BannedById { get; set; }
+		public ulong BannedById { get; set; }
 
 		[JsonPropertyName ("ban_date")]
-		public uint BannedDate { get; set; }
+		public ulong BannedDate { get; set; }
 
 		[JsonPropertyName ("reason")]
 		public string Reason { get; set; }

@@ -21,8 +21,8 @@ namespace mcm4csharp.v1.Client {
 
 		private readonly HttpClient authClient;
 
-		private uint lastRequest = 0;
-		private uint lastReplyAfter = 0;
+		private ulong lastRequest = 0;
+		private ulong lastReplyAfter = 0;
 		public bool WaitForTimeout { get; set; } = true;
 
 		public ApiClient (TokenType type, string token)
@@ -92,7 +92,7 @@ namespace mcm4csharp.v1.Client {
 		private async Task<Response<T>> buildResponseAsync<T> (HttpRequestMessage request)
 		{
 			if (this.WaitForTimeout) {
-				var currentTime = (uint)DateTimeOffset.UtcNow.ToUnixTimeMilliseconds ();
+				var currentTime = (ulong)DateTimeOffset.UtcNow.ToUnixTimeMilliseconds ();
 
 				if (currentTime <= lastRequest + lastReplyAfter) {
 					await Task.Delay ((int)(currentTime - lastRequest - lastReplyAfter));
@@ -109,7 +109,7 @@ namespace mcm4csharp.v1.Client {
 				});
 
 				if (sent.Headers.Contains ("Retry-After")) {
-					uint retryAfterMs = uint.Parse (sent.Headers.GetValues ("Retry-After").First ());
+					ulong retryAfterMs = ulong.Parse (sent.Headers.GetValues ("Retry-After").First ());
 
 					response.RetryAfterMilliseconds = retryAfterMs;
 					lastReplyAfter = retryAfterMs;
@@ -182,15 +182,15 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Conversation []> (convoReq);
 		}
 
-		public async Task<Response<uint>> StartNewConversationAsync (ConversationContent content)
+		public async Task<Response<ulong>> StartNewConversationAsync (ConversationContent content)
 		{
 			var convoUri = this.buildUri (Endpoints.CONVERSATIONS);
 			var convoReq = this.prepareRequest (HttpMethod.Post, convoUri, content);
 
-			return await this.buildResponseAsync<uint> (convoReq);
+			return await this.buildResponseAsync<ulong> (convoReq);
 		}
 
-		public async Task<Response<Data.Conversations.Reply []>> GetUnreadRepliesAsync (uint id, Sortable? sortingOptions = null)
+		public async Task<Response<Data.Conversations.Reply []>> GetUnreadRepliesAsync (ulong id, Sortable? sortingOptions = null)
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
@@ -202,14 +202,14 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Data.Conversations.Reply []> (convoReq);
 		}
 
-		public async Task<Response<uint>> ReplyUnreadConversationAsync (uint id, MessageContent content)
+		public async Task<Response<ulong>> ReplyUnreadConversationAsync (ulong id, MessageContent content)
 		{
 			var convoUri = this.buildUri (Endpoints.CONVERSATIONS_ID, replacements: new () {
 				{ "{id}", id.ToString () }
 			});
 			var convoReq = this.prepareRequest (HttpMethod.Post, convoUri, content);
 
-			return await this.buildResponseAsync<uint> (convoReq);
+			return await this.buildResponseAsync<ulong> (convoReq);
 		}
 
 		/*
@@ -236,7 +236,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<string> (selfReq);
 		}
 
-		public async Task<Response<Member>> GetUserAsync (uint id)
+		public async Task<Response<Member>> GetUserAsync (ulong id)
 		{
 			var selfUri = this.buildUri (Endpoints.MEMBERS, replacements: new () {
 				{ "{id}", id.ToString () }
@@ -282,7 +282,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<ProfilePost []> (postsReq);
 		}
 
-		public async Task<Response<ProfilePost>> GetProfilePostAsync (uint id)
+		public async Task<Response<ProfilePost>> GetProfilePostAsync (ulong id)
 		{
 			var postUri = this.buildUri (Endpoints.PROFILE_POSTS, replacements: new () {
 				{ "{id}", id.ToString () },
@@ -292,7 +292,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<ProfilePost> (postReq);
 		}
 
-		public async Task<Response<string>> ModifyProfilePostAsync (uint id, MessageContent content)
+		public async Task<Response<string>> ModifyProfilePostAsync (ulong id, MessageContent content)
 		{
 			var postUri = this.buildUri (Endpoints.PROFILE_POSTS, replacements: new () {
 				{ "{id}", id.ToString () }
@@ -302,7 +302,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<string> (postReq);
 		}
 
-		public async Task<Response<string>> DeleteProfilePostAsync (uint id)
+		public async Task<Response<string>> DeleteProfilePostAsync (ulong id)
 		{
 			var postUri = this.buildUri (Endpoints.PROFILE_POSTS, replacements: new () {
 				{ "{id}", id.ToString () }
@@ -352,7 +352,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<BasicResource []> (resReq);
 		}
 
-		public async Task<Response<BasicResource>> GetResourceAsync (uint id)
+		public async Task<Response<BasicResource>> GetResourceAsync (ulong id)
 		{
 			var resUri = this.buildUri (Endpoints.RESOURCES, replacements: new () {
 				{ "{id}", id.ToString () }
@@ -362,7 +362,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<BasicResource> (resReq);
 		}
 
-		public async Task<Response<string>> UpdateResourceAsync (uint id, ResourceContent content)
+		public async Task<Response<string>> UpdateResourceAsync (ulong id, ResourceContent content)
 		{
 			var resUri = this.buildUri (Endpoints.RESOURCES, replacements: new () {
 				{ "{id}", id.ToString () }
@@ -376,7 +376,7 @@ namespace mcm4csharp.v1.Client {
 		 * Versions
 		 */
 
-		public async Task<Response<Version []>> GetResourceVersionsAsync (uint id, Sortable? sortingOptions = null)
+		public async Task<Response<Version []>> GetResourceVersionsAsync (ulong id, Sortable? sortingOptions = null)
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
@@ -389,7 +389,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Version []> (verReq);
 		}
 
-		public async Task<Response<Version>> GetLatestVersionAsync (uint id)
+		public async Task<Response<Version>> GetLatestVersionAsync (ulong id)
 		{
 			var verUri = this.buildUri (Endpoints.VERSIONS, replacements: new () {
 				{ "{r_id}", id.ToString () },
@@ -400,7 +400,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Version> (verReq);
 		}
 
-		public async Task<Response<Version>> GetVersionAsync (uint resId, uint versionId)
+		public async Task<Response<Version>> GetVersionAsync (ulong resId, ulong versionId)
 		{
 			var verUri = this.buildUri (Endpoints.VERSIONS, replacements: new () {
 				{ "{r_id}", resId.ToString () },
@@ -411,7 +411,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Version> (verReq);
 		}
 
-		public async Task<Response<Version>> DeleteVersionAsync (uint resId, uint versionId)
+		public async Task<Response<Version>> DeleteVersionAsync (ulong resId, ulong versionId)
 		{
 			var verUri = this.buildUri (Endpoints.VERSIONS, replacements: new () {
 				{ "{r_id}", resId.ToString () },
@@ -426,7 +426,7 @@ namespace mcm4csharp.v1.Client {
 		 * Updates
 		 */
 
-		public async Task<Response<Update []>> GetResourceUpdatesAsync (uint id, Sortable? sortingOptions = null)
+		public async Task<Response<Update []>> GetResourceUpdatesAsync (ulong id, Sortable? sortingOptions = null)
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
@@ -439,7 +439,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Update []> (updateReq);
 		}
 
-		public async Task<Response<Update>> GetLatestUpdateAsync (uint id)
+		public async Task<Response<Update>> GetLatestUpdateAsync (ulong id)
 		{
 			var updateUri = this.buildUri (Endpoints.UPDATES, replacements: new () {
 				{ "{r_id}", id.ToString () },
@@ -450,7 +450,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Update> (updateReq);
 		}
 
-		public async Task<Response<Update>> GetUpdateAsync (uint resId, uint updateId)
+		public async Task<Response<Update>> GetUpdateAsync (ulong resId, ulong updateId)
 		{
 			var updateUri = this.buildUri (Endpoints.UPDATES, replacements: new () {
 				{ "{r_id}", resId.ToString () },
@@ -461,7 +461,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Update> (updateReq);
 		}
 
-		public async Task<Response<Update>> DeleteUpdateAsync (uint resId, uint updateId)
+		public async Task<Response<Update>> DeleteUpdateAsync (ulong resId, ulong updateId)
 		{
 			var updateUri = this.buildUri (Endpoints.UPDATES, replacements: new () {
 				{ "{r_id}", resId.ToString () },
@@ -476,7 +476,7 @@ namespace mcm4csharp.v1.Client {
 		 * Reviews
 		 */
 
-		public async Task<Response<Review []>> GetResourceReviewsAsync (uint id, Sortable? sortingOptions = null)
+		public async Task<Response<Review []>> GetResourceReviewsAsync (ulong id, Sortable? sortingOptions = null)
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
@@ -489,7 +489,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Review []> (reviewReq);
 		}
 
-		public async Task<Response<Review>> GetResourceReviewAsync (uint resId, uint memberId)
+		public async Task<Response<Review>> GetResourceReviewAsync (ulong resId, ulong memberId)
 		{
 			var reviewUri = this.buildUri (Endpoints.REVIEWS, replacements: new () {
 				{ "{res_id}", resId.ToString () },
@@ -500,7 +500,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Review> (reviewReq);
 		}
 
-		public async Task<Response<string>> RespondReviewAsync (uint resId, uint revId, ResponseContent content)
+		public async Task<Response<string>> RespondReviewAsync (ulong resId, ulong revId, ResponseContent content)
 		{
 			var reviewUri = this.buildUri (Endpoints.REVIEWS, replacements: new () {
 				{ "{res_id}", resId.ToString () },
@@ -515,7 +515,7 @@ namespace mcm4csharp.v1.Client {
 		 * Purchases
 		 */
 
-		public async Task<Response<Purchase []>> GetPurchasesAsync (uint id, Sortable? sortingOptions = null)
+		public async Task<Response<Purchase []>> GetPurchasesAsync (ulong id, Sortable? sortingOptions = null)
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
@@ -528,7 +528,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Purchase []> (purchReq);
 		}
 
-		public async Task<Response<Purchase>> GetPurchaseAsync (uint resId, uint purchId)
+		public async Task<Response<Purchase>> GetPurchaseAsync (ulong resId, ulong purchId)
 		{
 			var purchUri = this.buildUri (Endpoints.PURCHASES, replacements: new () {
 				{ "{r_id}", resId.ToString () },
@@ -543,7 +543,7 @@ namespace mcm4csharp.v1.Client {
 		 * Licenses
 		 */
 
-		public async Task<Response<License []>> GetResourceLicensesAsync (uint id, Sortable? sortingOptions = null)
+		public async Task<Response<License []>> GetResourceLicensesAsync (ulong id, Sortable? sortingOptions = null)
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
@@ -556,7 +556,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<License []> (licReq);
 		}
 
-		public async Task<Response<uint>> IssueLicenseAsync (uint id, LicenseContent content)
+		public async Task<Response<ulong>> IssueLicenseAsync (ulong id, LicenseContent content)
 		{
 			var licUri = this.buildUri (Endpoints.LICENSES, replacements: new () {
 				{ "{r_id}", id.ToString () },
@@ -564,10 +564,10 @@ namespace mcm4csharp.v1.Client {
 			});
 			var licReq = this.prepareRequest (HttpMethod.Post, licUri, content);
 
-			return await this.buildResponseAsync<uint> (licReq);
+			return await this.buildResponseAsync<ulong> (licReq);
 		}
 
-		public async Task<Response<License>> GetResourceLicenseAsync (uint resId, uint licId)
+		public async Task<Response<License>> GetResourceLicenseAsync (ulong resId, ulong licId)
 		{
 			var licUri = this.buildUri (Endpoints.LICENSES, replacements: new () {
 				{ "{r_id}", resId.ToString () },
@@ -578,7 +578,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<License> (licReq);
 		}
 
-		public async Task<Response<string>> ModifyLicenseAsync (uint resId, uint licId, LicenseContent content)
+		public async Task<Response<string>> ModifyLicenseAsync (ulong resId, ulong licId, LicenseContent content)
 		{
 			var licUri = this.buildUri (Endpoints.LICENSES, replacements: new () {
 				{ "{r_id}", resId.ToString () },
@@ -589,7 +589,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<string> (licReq);
 		}
 
-		public async Task<Response<License>> GetResourceLicenseMemberAsync (uint resId, uint memId, uint? nonce, uint? timestamp)
+		public async Task<Response<License>> GetResourceLicenseMemberAsync (ulong resId, ulong memId, ulong? nonce, ulong? timestamp)
 		{
 			var opt = nonce.HasValue && timestamp.HasValue ? new Dictionary<string, string> () {
 				{ "nonce", nonce.Value.ToString() },
@@ -608,7 +608,7 @@ namespace mcm4csharp.v1.Client {
 		 * Downloads
 		 */
 
-		public async Task<Response<Download []>> GetDownloadsAsync (uint id, Sortable? sortingOptions = null)
+		public async Task<Response<Download []>> GetDownloadsAsync (ulong id, Sortable? sortingOptions = null)
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
@@ -621,7 +621,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Download []> (downReq);
 		}
 
-		public async Task<Response<Download []>> GetDownloadsMemberAsync (uint resId, uint memId, Sortable? sortingOptions = null)
+		public async Task<Response<Download []>> GetDownloadsMemberAsync (ulong resId, ulong memId, Sortable? sortingOptions = null)
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
@@ -634,7 +634,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Download []> (downReq);
 		}
 
-		public async Task<Response<Download []>> GetDownloadsVersionAsync (uint resId, uint memId, Sortable? sortingOptions = null)
+		public async Task<Response<Download []>> GetDownloadsVersionAsync (ulong resId, ulong memId, Sortable? sortingOptions = null)
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
@@ -664,7 +664,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Thread []> (threadReq);
 		}
 
-		public async Task<Response<Thread>> GetThreadAsync (uint id)
+		public async Task<Response<Thread>> GetThreadAsync (ulong id)
 		{
 			var threadUri = this.buildUri (Endpoints.REPLIES, replacements: new () {
 				{ "{id}", id.ToString () },
@@ -679,7 +679,7 @@ namespace mcm4csharp.v1.Client {
 		 * Replies
 		 */
 
-		public async Task<Response<Data.Threads.Reply []>> GetThreadRepliesAsync (uint id, Sortable? sortingOptions = null)
+		public async Task<Response<Data.Threads.Reply []>> GetThreadRepliesAsync (ulong id, Sortable? sortingOptions = null)
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
@@ -692,7 +692,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Data.Threads.Reply []> (repliesReq);
 		}
 
-		public async Task<Response<uint>> ReplyThreadAsync (uint id, MessageContent content)
+		public async Task<Response<ulong>> ReplyThreadAsync (ulong id, MessageContent content)
 		{
 			var repliesUri = this.buildUri (Endpoints.REPLIES, replacements: new () {
 				{ "{id}", id.ToString () },
@@ -700,7 +700,7 @@ namespace mcm4csharp.v1.Client {
 			});
 			var repliesReq = this.prepareRequest (HttpMethod.Post, repliesUri, content);
 
-			return await this.buildResponseAsync<uint> (repliesReq);
+			return await this.buildResponseAsync<ulong> (repliesReq);
 		}
 
 	}
