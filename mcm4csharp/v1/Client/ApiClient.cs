@@ -43,7 +43,7 @@ namespace mcm4csharp.v1.Client {
 		{
 			if (replacements != null)
 				foreach (var replacement in replacements) {
-					endpoint = endpoint.Replace (replacement.Key, HttpUtility.UrlEncode(replacement.Value));
+					endpoint = endpoint.Replace (replacement.Key, HttpUtility.UrlEncode (replacement.Value));
 				}
 
 			UriBuilder uriBuilder = new (BaseUri) {
@@ -74,7 +74,7 @@ namespace mcm4csharp.v1.Client {
 		private HttpRequestMessage prepareRequest (HttpMethod method, Uri uri, object? body = null)
 		{
 			HttpRequestMessage request = new (method, uri) {
-				Content = JsonContent.Create (body, options: new JsonSerializerOptions() {
+				Content = JsonContent.Create (body, options: new JsonSerializerOptions () {
 					Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
 				})
 			};
@@ -101,22 +101,32 @@ namespace mcm4csharp.v1.Client {
 				lastRequest = currentTime;
 			}
 
-			var sent = await authClient.SendAsync (request);
+			try {
+				var sent = await authClient.SendAsync (request);
 
-			var response = await sent.Content.ReadFromJsonAsync<Response<T>> (new JsonSerializerOptions() {
-				Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
-			});
+				var response = await sent.Content.ReadFromJsonAsync<Response<T>> (new JsonSerializerOptions () {
+					Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+				});
 
-			if (sent.Headers.Contains ("Retry-After")) {
-				uint retryAfterMs = uint.Parse (sent.Headers.GetValues ("Retry-After").First ());
+				if (sent.Headers.Contains ("Retry-After")) {
+					uint retryAfterMs = uint.Parse (sent.Headers.GetValues ("Retry-After").First ());
 
-				response.RetryAfterMilliseconds = retryAfterMs;
-				lastReplyAfter = retryAfterMs;
-			} else {
-				lastReplyAfter = 0;
+					response.RetryAfterMilliseconds = retryAfterMs;
+					lastReplyAfter = retryAfterMs;
+				} else {
+					lastReplyAfter = 0;
+				}
+
+				return response;
+			} catch (Exception ex) {
+				return new Response<T> () {
+					Error = new Error () {
+						Code = ex.GetType ().Name,
+						Message = ex.Message
+					}
+				};
 			}
 
-			return response;
 		}
 
 		// Structure
@@ -682,7 +692,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Data.Threads.Reply []> (repliesReq);
 		}
 
-		public async Task<Response<uint>> ReplyThreadAsync(uint id, MessageContent content)
+		public async Task<Response<uint>> ReplyThreadAsync (uint id, MessageContent content)
 		{
 			var repliesUri = this.buildUri (Endpoints.REPLIES, replacements: new () {
 				{ "{id}", id.ToString () },
