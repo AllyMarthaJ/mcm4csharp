@@ -21,6 +21,10 @@ namespace mcm4csharp.v1.Client {
 
 		private readonly HttpClient authClient;
 
+		private uint lastRequest = 0;
+		private uint lastReplyAfter = 0;
+		public bool WaitForTimeout { get; set; } = true;
+
 		public ApiClient (TokenType type, string token)
 		{
 			this.authClient = new HttpClient ();
@@ -37,7 +41,6 @@ namespace mcm4csharp.v1.Client {
 		/// <returns>Built URI.</returns>
 		private Uri buildUri (string endpoint, Dictionary<string, string>? pathParams = null, Dictionary<string, string>? replacements = null)
 		{
-			// todo: escape later, this is dangerous
 			if (replacements != null)
 				foreach (var replacement in replacements) {
 					endpoint = endpoint.Replace (replacement.Key, HttpUtility.UrlEncode(replacement.Value));
@@ -55,8 +58,6 @@ namespace mcm4csharp.v1.Client {
 				}
 
 			uriBuilder.Query = query.ToString ();
-
-			Console.WriteLine (uriBuilder.Uri.ToString ());
 
 			return uriBuilder.Uri;
 		}
@@ -90,8 +91,18 @@ namespace mcm4csharp.v1.Client {
 		/// <returns>Compiled response.</returns>
 		private async Task<Response<T>> buildResponseAsync<T> (HttpRequestMessage request)
 		{
+			if (this.WaitForTimeout) {
+				var currentTime = (uint)DateTimeOffset.UtcNow.ToUnixTimeMilliseconds ();
+
+				if (currentTime <= lastRequest + lastReplyAfter) {
+					await Task.Delay ((int)(currentTime - lastRequest - lastReplyAfter));
+				}
+
+				lastRequest = currentTime;
+			}
+
 			var sent = await authClient.SendAsync (request);
-			Console.WriteLine (await sent.Content.ReadAsStringAsync ());
+
 			var response = await sent.Content.ReadFromJsonAsync<Response<T>> (new JsonSerializerOptions() {
 				Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
 			});
@@ -100,6 +111,9 @@ namespace mcm4csharp.v1.Client {
 				uint retryAfterMs = uint.Parse (sent.Headers.GetValues ("Retry-After").First ());
 
 				response.RetryAfterMilliseconds = retryAfterMs;
+				lastReplyAfter = retryAfterMs;
+			} else {
+				lastReplyAfter = 0;
 			}
 
 			return response;
