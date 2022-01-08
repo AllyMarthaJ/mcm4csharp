@@ -4,8 +4,8 @@ using mcm4csharp.v1.Data.Content;
 using mcm4csharp.v1.Data.Conversations;
 
 public class Program {
-	private static uint conversationId;
-	private static Reply lastMessage;
+	private static uint conversationId = 0;
+	private static uint lastMessageId = 0;
 	private static ApiClient chatClient;
 
 	public static async Task Main (string [] args)
@@ -21,6 +21,12 @@ public class Program {
 		}
 
 		while (!await fetchConversation ()) ;
+
+		var t = new Thread (async () => await writeForever());
+		t.Start ();
+		await runForever ();
+
+		while (true) ;
 	}
 
 	private static void setupClient ()
@@ -123,7 +129,7 @@ Otherwise, you can opt to create a new conversation here.
 		return message.ToString ();
 	}
 
-	private static void showError(string prepend, Error err)
+	private static void showError (string prepend, Error err)
 	{
 		Console.WriteLine (new String ('-', 20));
 		Console.WriteLine (prepend);
@@ -131,5 +137,33 @@ Otherwise, you can opt to create a new conversation here.
 		Console.WriteLine ("Response: " + err.Code);
 		Console.WriteLine ("Reason: " + err.Message);
 		Console.WriteLine (new String ('-', 20));
+	}
+
+	private static async Task runForever ()
+	{
+		while (true) {
+			
+			var replies = await chatClient.GetUnreadRepliesAsync (conversationId);
+
+			foreach (var reply in replies.Data.Reverse ()) {
+				if (reply.MessageId > lastMessageId) {
+					Console.WriteLine ($"[{reply.AuthorId}] [{reply.MessageId}] {reply.Message}");
+					lastMessageId = reply.MessageId;
+				}
+			}
+		}
+	}
+
+	private static async Task writeForever()
+	{
+		while (true) {
+			var msg = Console.ReadLine ();
+			var sendResp = await chatClient.ReplyUnreadConversationAsync (conversationId, new MessageContent () {
+				Message = msg
+			});
+			if (sendResp.Result != "success") {
+				showError ("Unable to send.", sendResp.Error);
+			}
+		}
 	}
 }
