@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['update_0',['Update',['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_update.html',1,'mcm4csharp::v1::Data::Resources']]],
-  ['update_2ecs_1',['Update.cs',['../_update_8cs.html',1,'']]],
-  ['updatedate_2',['UpdateDate',['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_update.html#a358e40619c97d9e6b0f7d88b84aed551',1,'mcm4csharp::v1::Data::Resources::Update']]],
-  ['updateid_3',['UpdateId',['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_update.html#ae23db782a581bf40cf9660c3a635b935',1,'mcm4csharp.v1.Data.Resources.Update.UpdateId()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_version.html#a9e23780974975890e6c6ebe510e47cd1',1,'mcm4csharp.v1.Data.Resources.Version.UpdateId()']]],
-  ['updateresourceasync_4',['UpdateResourceAsync',['../classmcm4csharp_1_1v1_1_1_client_1_1_api_client.html#a7d762d1d5c5711cd5152e382cce7fdcc',1,'mcm4csharp::v1::Client::ApiClient']]],
-  ['updates_5',['UPDATES',['../classmcm4csharp_1_1v1_1_1_client_1_1_endpoints.html#a7b5e3e87b7ead3200e4ad78798a61d0f',1,'mcm4csharp::v1::Client::Endpoints']]],
-  ['username_6',['Username',['../structmcm4csharp_1_1v1_1_1_data_1_1_members_1_1_member.html#a3ead8512ec68d1dd1ec9664e1664bd2d',1,'mcm4csharp::v1::Data::Members::Member']]]
+  ['validated_0',['Validated',['../classmcm4csharp_1_1v1_1_1_client_1_1_sortable_fields.html#a63ab9759268fd08f8057ff4c75066042',1,'mcm4csharp.v1.Client.SortableFields.Validated()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_license.html#abf9dd722fa68c3ea39efb7f09e43115c',1,'mcm4csharp.v1.Data.Resources.License.Validated()']]],
+  ['validationdate_1',['ValidationDate',['../classmcm4csharp_1_1v1_1_1_client_1_1_sortable_fields.html#a83918cba4e2083053b06f7f9021bd388',1,'mcm4csharp.v1.Client.SortableFields.ValidationDate()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_purchase.html#ab5ee31c503493fa0994227fa996e1876',1,'mcm4csharp.v1.Data.Resources.Purchase.ValidationDate()']]],
+  ['version_2',['Version',['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_version.html',1,'mcm4csharp.v1.Data.Resources.Version'],['../_api_client_8cs.html#accf2d62ead443fc458d250dabf5ab755',1,'Version():&#160;ApiClient.cs']]],
+  ['version_2ecs_3',['Version.cs',['../_version_8cs.html',1,'']]],
+  ['versionid_4',['VersionId',['../classmcm4csharp_1_1v1_1_1_client_1_1_sortable_fields.html#ad96b4abc44f263e3144a69414e0f17fc',1,'mcm4csharp.v1.Client.SortableFields.VersionId()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_download.html#a9175dcb6ea26197d8dfe9661a3d01639',1,'mcm4csharp.v1.Data.Resources.Download.VersionId()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_version.html#afa14eca375fd77f4c31f5c7ab7ac2aba',1,'mcm4csharp.v1.Data.Resources.Version.VersionId()']]],
+  ['versions_5',['Versions',['../classmcm4csharp_1_1v1_1_1_client_1_1_sortable_fields.html#a94550161dbd364aa6777204e5c60121a',1,'mcm4csharp::v1::Client::SortableFields']]],
+  ['viewcount_6',['ViewCount',['../classmcm4csharp_1_1v1_1_1_client_1_1_sortable_fields.html#aa276e76de0eefeb7b37e25df06bf09ed',1,'mcm4csharp.v1.Client.SortableFields.ViewCount()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_threads_1_1_basic_thread.html#a81e215c6081bbf59a1474d4455680479',1,'mcm4csharp.v1.Data.Threads.BasicThread.ViewCount()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_threads_1_1_thread.html#acfab7245bfd831d5da5e1140fa5a28e0',1,'mcm4csharp.v1.Data.Threads.Thread.ViewCount()']]]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['tagline_0',['TagLine',['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_basic_resource.html#afaa98fdd959095feb838b899fe94aed9',1,'mcm4csharp.v1.Data.Resources.BasicResource.TagLine()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_resource.html#ac4fe488afa15b49495d38f62ebeb36c7',1,'mcm4csharp.v1.Data.Resources.Resource.TagLine()']]],
-  ['tagline_1',['Tagline',['../structmcm4csharp_1_1v1_1_1_data_1_1_content_1_1_resource_content.html#aee09ae2b23580189149e42c4cbfce12a',1,'mcm4csharp::v1::Data::Content::ResourceContent']]],
+  ['tagline_0',['Tagline',['../structmcm4csharp_1_1v1_1_1_data_1_1_content_1_1_resource_content.html#aee09ae2b23580189149e42c4cbfce12a',1,'mcm4csharp::v1::Data::Content::ResourceContent']]],
+  ['tagline_1',['TagLine',['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_basic_resource.html#afaa98fdd959095feb838b899fe94aed9',1,'mcm4csharp.v1.Data.Resources.BasicResource.TagLine()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_resource.html#ac4fe488afa15b49495d38f62ebeb36c7',1,'mcm4csharp.v1.Data.Resources.Resource.TagLine()']]],
   ['threadid_2',['ThreadId',['../structmcm4csharp_1_1v1_1_1_data_1_1_threads_1_1_basic_thread.html#acd9fb4433133ab2eaf0e3daa39b302b3',1,'mcm4csharp.v1.Data.Threads.BasicThread.ThreadId()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_threads_1_1_thread.html#ab74cd4e680434c93c8435c3d0abfc07e',1,'mcm4csharp.v1.Data.Threads.Thread.ThreadId()']]],
   ['threadopen_3',['ThreadOpen',['../structmcm4csharp_1_1v1_1_1_data_1_1_threads_1_1_thread.html#aa41fa4161b5c3ac78a756a88db1e9444',1,'mcm4csharp::v1::Data::Threads::Thread']]],
   ['threadtype_4',['ThreadType',['../structmcm4csharp_1_1v1_1_1_data_1_1_threads_1_1_thread.html#a933cc020419a68b506bad875fa9f3c65',1,'mcm4csharp::v1::Data::Threads::Thread']]],

@@ -249,7 +249,7 @@ namespace mcm4csharp.v1.Client {
 		public async Task<Response<Member>> GetUserAsync (string username)
 		{
 			var selfUri = this.buildUri (Endpoints.MEMBERS, replacements: new () {
-				{ "{id}", $"username/{username}" }
+				{ "{id}", $"usernames/{username}" }
 			});
 			var selfReq = this.prepareRequest (HttpMethod.Get, selfUri);
 

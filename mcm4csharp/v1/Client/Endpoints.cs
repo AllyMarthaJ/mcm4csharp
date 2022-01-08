@@ -1,7 +1,7 @@
 ﻿using System;
 namespace mcm4csharp.v1.Client
 {
-	public class Endpoints
+	internal class Endpoints
 	{
 		public const string HEALTH = "v1/health";
 		public const string ALERTS = "v1/alerts";
