@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mcm4csharp", "mcm4csharp\mc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "debugger", "debugger\debugger.csproj", "{49F4E7B3-F9E5-466E-831B-F91BFE3902EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstaConvo", "InstaConvo\InstaConvo.csproj", "{32398576-C0BD-49B7-9D8C-7B8FA2D4D528}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{49F4E7B3-F9E5-466E-831B-F91BFE3902EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49F4E7B3-F9E5-466E-831B-F91BFE3902EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49F4E7B3-F9E5-466E-831B-F91BFE3902EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32398576-C0BD-49B7-9D8C-7B8FA2D4D528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32398576-C0BD-49B7-9D8C-7B8FA2D4D528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32398576-C0BD-49B7-9D8C-7B8FA2D4D528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32398576-C0BD-49B7-9D8C-7B8FA2D4D528}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
