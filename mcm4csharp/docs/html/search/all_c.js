@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['alerts_0',['Alerts',['../namespacemcm4csharp_1_1v1_1_1_data_1_1_alerts.html',1,'mcm4csharp::v1::Data']]],
+  ['client_1',['Client',['../namespacemcm4csharp_1_1v1_1_1_client.html',1,'mcm4csharp::v1']]],
+  ['content_2',['Content',['../namespacemcm4csharp_1_1v1_1_1_data_1_1_content.html',1,'mcm4csharp::v1::Data']]],
+  ['conversations_3',['Conversations',['../namespacemcm4csharp_1_1v1_1_1_data_1_1_conversations.html',1,'mcm4csharp::v1::Data']]],
+  ['data_4',['Data',['../namespacemcm4csharp_1_1v1_1_1_data.html',1,'mcm4csharp::v1']]],
+  ['markunreadasync_5',['MarkUnreadAsync',['../classmcm4csharp_1_1v1_1_1_client_1_1_api_client.html#a82bc57c9ebc37b77432ae1e09cf74964',1,'mcm4csharp::v1::Client::ApiClient']]],
+  ['mcm4csharp_6',['mcm4csharp',['../namespacemcm4csharp.html',1,'']]],
+  ['mcm4csharp_2eassemblyinfo_2ecs_7',['mcm4csharp.AssemblyInfo.cs',['../_release_2net6_80_2mcm4csharp_8_assembly_info_8cs.html',1,'(Global Namespace)'],['../_debug_2net6_80_2mcm4csharp_8_assembly_info_8cs.html',1,'(Global Namespace)']]],
+  ['mcm4csharp_2eglobalusings_2eg_2ecs_8',['mcm4csharp.GlobalUsings.g.cs',['../_release_2net6_80_2mcm4csharp_8_global_usings_8g_8cs.html',1,'(Global Namespace)'],['../_debug_2net6_80_2mcm4csharp_8_global_usings_8g_8cs.html',1,'(Global Namespace)']]],
+  ['member_9',['Member',['../structmcm4csharp_1_1v1_1_1_data_1_1_members_1_1_member.html',1,'mcm4csharp::v1::Data::Members']]],
+  ['member_2ecs_10',['Member.cs',['../_member_8cs.html',1,'']]],
+  ['memberid_11',['MemberId',['../structmcm4csharp_1_1v1_1_1_data_1_1_members_1_1_ban.html#aa2bd3f265bda103d84173971417d4b75',1,'mcm4csharp.v1.Data.Members.Ban.MemberId()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_members_1_1_member.html#ab217d6a5a618dd7b48d94193d726a1a4',1,'mcm4csharp.v1.Data.Members.Member.MemberId()']]],
+  ['members_12',['Members',['../namespacemcm4csharp_1_1v1_1_1_data_1_1_members.html',1,'mcm4csharp::v1::Data']]],
+  ['members_13',['MEMBERS',['../classmcm4csharp_1_1v1_1_1_client_1_1_endpoints.html#a3a77fd9d82c89fd376e31886591e2fa7',1,'mcm4csharp::v1::Client::Endpoints']]],
+  ['message_14',['Message',['../structmcm4csharp_1_1v1_1_1_data_1_1_content_1_1_conversation_content.html#acbe6d7def84b03529b0a882ae328afca',1,'mcm4csharp.v1.Data.Content.ConversationContent.Message()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_content_1_1_error.html#ae54255f9fd49bb3d06d1151ebaba5376',1,'mcm4csharp.v1.Data.Content.Error.Message()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_content_1_1_message_content.html#a1b29cf63b0dc2357b38c341a5e2e609e',1,'mcm4csharp.v1.Data.Content.MessageContent.Message()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_conversations_1_1_reply.html#ab28aad308b29e9cd1c9e7dc7588e099d',1,'mcm4csharp.v1.Data.Conversations.Reply.Message()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_members_1_1_profile_post.html#ab49c57236db18120d6f0d0474bc70edc',1,'mcm4csharp.v1.Data.Members.ProfilePost.Message()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_review.html#a19f678216f44e9980a572b7af9e9db06',1,'mcm4csharp.v1.Data.Resources.Review.Message()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_update.html#a2f9dafa1a90fe5ace1a7bb854b1f0277',1,'mcm4csharp.v1.Data.Resources.Update.Message()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_threads_1_1_reply.html#a0de45acc12766570bad291d8f4a969f9',1,'mcm4csharp.v1.Data.Threads.Reply.Message()']]],
+  ['messagecontent_15',['MessageContent',['../structmcm4csharp_1_1v1_1_1_data_1_1_content_1_1_message_content.html',1,'mcm4csharp::v1::Data::Content']]],
+  ['messagecontent_2ecs_16',['MessageContent.cs',['../_message_content_8cs.html',1,'']]],
+  ['messagedate_17',['MessageDate',['../structmcm4csharp_1_1v1_1_1_data_1_1_conversations_1_1_reply.html#a988f72b4fac9ba10bcfa0baf93b32b37',1,'mcm4csharp::v1::Data::Conversations::Reply']]],
+  ['messageid_18',['MessageId',['../structmcm4csharp_1_1v1_1_1_data_1_1_conversations_1_1_reply.html#ace6c1af8f8d379d092ca34a9463995f3',1,'mcm4csharp::v1::Data::Conversations::Reply']]],
+  ['modifylicenseasync_19',['ModifyLicenseAsync',['../classmcm4csharp_1_1v1_1_1_client_1_1_api_client.html#a5d90e2d4e9dbdb3f92d993a19d477f2c',1,'mcm4csharp::v1::Client::ApiClient']]],
+  ['modifyprofilepostasync_20',['ModifyProfilePostAsync',['../classmcm4csharp_1_1v1_1_1_client_1_1_api_client.html#a9d0e4f1f9ff789e3c2ee3ced3246d377',1,'mcm4csharp::v1::Client::ApiClient']]],
+  ['modifyselfasync_21',['ModifySelfAsync',['../classmcm4csharp_1_1v1_1_1_client_1_1_api_client.html#a25caf99425328349a9bc3d065e69a609',1,'mcm4csharp::v1::Client::ApiClient']]],
+  ['resources_22',['Resources',['../namespacemcm4csharp_1_1v1_1_1_data_1_1_resources.html',1,'mcm4csharp::v1::Data']]],
+  ['threads_23',['Threads',['../namespacemcm4csharp_1_1v1_1_1_data_1_1_threads.html',1,'mcm4csharp::v1::Data']]],
+  ['v1_24',['v1',['../namespacemcm4csharp_1_1v1.html',1,'mcm4csharp']]]
+];

@@ -1,0 +1,326 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Namespace Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Packages}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}File Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}File List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Namespace Documentation}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}mcm4csharp Namespace Reference}{7}{section.4.1}%
+\contentsline {section}{\numberline {4.2}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1 Namespace Reference}{7}{section.4.2}%
+\contentsline {section}{\numberline {4.3}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client Namespace Reference}{7}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Enumeration Type Documentation}{7}{subsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.1.1}TokenType}{7}{subsubsection.4.3.1.1}%
+\contentsline {section}{\numberline {4.4}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data Namespace Reference}{8}{section.4.4}%
+\contentsline {section}{\numberline {4.5}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alerts Namespace Reference}{8}{section.4.5}%
+\contentsline {section}{\numberline {4.6}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content Namespace Reference}{8}{section.4.6}%
+\contentsline {section}{\numberline {4.7}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Conversations Namespace Reference}{8}{section.4.7}%
+\contentsline {section}{\numberline {4.8}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Members Namespace Reference}{9}{section.4.8}%
+\contentsline {section}{\numberline {4.9}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resources Namespace Reference}{9}{section.4.9}%
+\contentsline {section}{\numberline {4.10}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Threads Namespace Reference}{9}{section.4.10}%
+\contentsline {chapter}{\numberline {5}Class Documentation}{11}{chapter.5}%
+\contentsline {section}{\numberline {5.1}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alerts.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alert Struct Reference}{11}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Property Documentation}{11}{subsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.1.1}AlertDate}{11}{subsubsection.5.1.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.1.2}AlertType}{11}{subsubsection.5.1.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.1.3}CausedMemberId}{11}{subsubsection.5.1.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.1.4}ContentId}{12}{subsubsection.5.1.1.4}%
+\contentsline {subsubsection}{\numberline {5.1.1.5}ContentType}{12}{subsubsection.5.1.1.5}%
+\contentsline {section}{\numberline {5.2}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Api\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client Class Reference}{12}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Constructor \& Destructor Documentation}{13}{subsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.1.1}ApiClient()}{13}{subsubsection.5.2.1.1}%
+\contentsline {subsection}{\numberline {5.2.2}Member Function Documentation}{13}{subsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.1}DeleteProfilePostAsync()}{13}{subsubsection.5.2.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2.2}DeleteUpdateAsync()}{14}{subsubsection.5.2.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.3}DeleteVersionAsync()}{14}{subsubsection.5.2.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.2.4}GetBansAsync()}{14}{subsubsection.5.2.2.4}%
+\contentsline {subsubsection}{\numberline {5.2.2.5}GetCollaboratedResourcesAsync()}{14}{subsubsection.5.2.2.5}%
+\contentsline {subsubsection}{\numberline {5.2.2.6}GetDownloadsAsync()}{14}{subsubsection.5.2.2.6}%
+\contentsline {subsubsection}{\numberline {5.2.2.7}GetDownloadsMemberAsync()}{14}{subsubsection.5.2.2.7}%
+\contentsline {subsubsection}{\numberline {5.2.2.8}GetDownloadsVersionAsync()}{15}{subsubsection.5.2.2.8}%
+\contentsline {subsubsection}{\numberline {5.2.2.9}GetHealthAsync()}{15}{subsubsection.5.2.2.9}%
+\contentsline {subsubsection}{\numberline {5.2.2.10}GetLatestUpdateAsync()}{15}{subsubsection.5.2.2.10}%
+\contentsline {subsubsection}{\numberline {5.2.2.11}GetLatestVersionAsync()}{15}{subsubsection.5.2.2.11}%
+\contentsline {subsubsection}{\numberline {5.2.2.12}GetOwnedResourcesAsync()}{15}{subsubsection.5.2.2.12}%
+\contentsline {subsubsection}{\numberline {5.2.2.13}GetProfilePostAsync()}{15}{subsubsection.5.2.2.13}%
+\contentsline {subsubsection}{\numberline {5.2.2.14}GetProfilePostsAsync()}{15}{subsubsection.5.2.2.14}%
+\contentsline {subsubsection}{\numberline {5.2.2.15}GetPublicResourcesAsync()}{16}{subsubsection.5.2.2.15}%
+\contentsline {subsubsection}{\numberline {5.2.2.16}GetPurchaseAsync()}{16}{subsubsection.5.2.2.16}%
+\contentsline {subsubsection}{\numberline {5.2.2.17}GetPurchasesAsync()}{16}{subsubsection.5.2.2.17}%
+\contentsline {subsubsection}{\numberline {5.2.2.18}GetResourceAsync()}{16}{subsubsection.5.2.2.18}%
+\contentsline {subsubsection}{\numberline {5.2.2.19}GetResourceLicenseAsync()}{16}{subsubsection.5.2.2.19}%
+\contentsline {subsubsection}{\numberline {5.2.2.20}GetResourceLicenseMemberAsync()}{16}{subsubsection.5.2.2.20}%
+\contentsline {subsubsection}{\numberline {5.2.2.21}GetResourceLicensesAsync()}{17}{subsubsection.5.2.2.21}%
+\contentsline {subsubsection}{\numberline {5.2.2.22}GetResourceReviewAsync()}{17}{subsubsection.5.2.2.22}%
+\contentsline {subsubsection}{\numberline {5.2.2.23}GetResourceReviewsAsync()}{17}{subsubsection.5.2.2.23}%
+\contentsline {subsubsection}{\numberline {5.2.2.24}GetResourceUpdatesAsync()}{17}{subsubsection.5.2.2.24}%
+\contentsline {subsubsection}{\numberline {5.2.2.25}GetResourceVersionsAsync()}{17}{subsubsection.5.2.2.25}%
+\contentsline {subsubsection}{\numberline {5.2.2.26}GetSelfAsync()}{17}{subsubsection.5.2.2.26}%
+\contentsline {subsubsection}{\numberline {5.2.2.27}GetThreadAsync()}{18}{subsubsection.5.2.2.27}%
+\contentsline {subsubsection}{\numberline {5.2.2.28}GetThreadRepliesAsync()}{18}{subsubsection.5.2.2.28}%
+\contentsline {subsubsection}{\numberline {5.2.2.29}GetThreadsAsync()}{18}{subsubsection.5.2.2.29}%
+\contentsline {subsubsection}{\numberline {5.2.2.30}GetUnreadAlertsAsync()}{18}{subsubsection.5.2.2.30}%
+\contentsline {subsubsection}{\numberline {5.2.2.31}GetUnreadConversationsAsync()}{18}{subsubsection.5.2.2.31}%
+\contentsline {subsubsection}{\numberline {5.2.2.32}GetUnreadRepliesAsync()}{18}{subsubsection.5.2.2.32}%
+\contentsline {subsubsection}{\numberline {5.2.2.33}GetUpdateAsync()}{19}{subsubsection.5.2.2.33}%
+\contentsline {subsubsection}{\numberline {5.2.2.34}GetUserAsync()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{19}{subsubsection.5.2.2.34}%
+\contentsline {subsubsection}{\numberline {5.2.2.35}GetUserAsync()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{19}{subsubsection.5.2.2.35}%
+\contentsline {subsubsection}{\numberline {5.2.2.36}GetVersionAsync()}{19}{subsubsection.5.2.2.36}%
+\contentsline {subsubsection}{\numberline {5.2.2.37}IssueLicenseAsync()}{19}{subsubsection.5.2.2.37}%
+\contentsline {subsubsection}{\numberline {5.2.2.38}MarkUnreadAsync()}{19}{subsubsection.5.2.2.38}%
+\contentsline {subsubsection}{\numberline {5.2.2.39}ModifyLicenseAsync()}{20}{subsubsection.5.2.2.39}%
+\contentsline {subsubsection}{\numberline {5.2.2.40}ModifyProfilePostAsync()}{20}{subsubsection.5.2.2.40}%
+\contentsline {subsubsection}{\numberline {5.2.2.41}ModifySelfAsync()}{20}{subsubsection.5.2.2.41}%
+\contentsline {subsubsection}{\numberline {5.2.2.42}ReplyThreadAsync()}{20}{subsubsection.5.2.2.42}%
+\contentsline {subsubsection}{\numberline {5.2.2.43}ReplyUnreadConversationAsync()}{20}{subsubsection.5.2.2.43}%
+\contentsline {subsubsection}{\numberline {5.2.2.44}RespondReviewAsync()}{20}{subsubsection.5.2.2.44}%
+\contentsline {subsubsection}{\numberline {5.2.2.45}StartNewConversationAsync()}{21}{subsubsection.5.2.2.45}%
+\contentsline {subsubsection}{\numberline {5.2.2.46}UpdateResourceAsync()}{21}{subsubsection.5.2.2.46}%
+\contentsline {subsection}{\numberline {5.2.3}Member Data Documentation}{21}{subsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.3.1}BaseUri}{21}{subsubsection.5.2.3.1}%
+\contentsline {subsection}{\numberline {5.2.4}Property Documentation}{21}{subsection.5.2.4}%
+\contentsline {subsubsection}{\numberline {5.2.4.1}WaitForTimeout}{21}{subsubsection.5.2.4.1}%
+\contentsline {section}{\numberline {5.3}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Members.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ban Struct Reference}{21}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Property Documentation}{22}{subsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.1.1}BannedById}{22}{subsubsection.5.3.1.1}%
+\contentsline {subsubsection}{\numberline {5.3.1.2}BannedDate}{22}{subsubsection.5.3.1.2}%
+\contentsline {subsubsection}{\numberline {5.3.1.3}MemberId}{22}{subsubsection.5.3.1.3}%
+\contentsline {subsubsection}{\numberline {5.3.1.4}Reason}{22}{subsubsection.5.3.1.4}%
+\contentsline {section}{\numberline {5.4}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resources.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Basic\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resource Struct Reference}{22}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Property Documentation}{22}{subsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.1.1}AuthorId}{23}{subsubsection.5.4.1.1}%
+\contentsline {subsubsection}{\numberline {5.4.1.2}Currency}{23}{subsubsection.5.4.1.2}%
+\contentsline {subsubsection}{\numberline {5.4.1.3}Price}{23}{subsubsection.5.4.1.3}%
+\contentsline {subsubsection}{\numberline {5.4.1.4}ResourceId}{23}{subsubsection.5.4.1.4}%
+\contentsline {subsubsection}{\numberline {5.4.1.5}TagLine}{23}{subsubsection.5.4.1.5}%
+\contentsline {subsubsection}{\numberline {5.4.1.6}Title}{23}{subsubsection.5.4.1.6}%
+\contentsline {section}{\numberline {5.5}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Threads.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Basic\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Thread Struct Reference}{23}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Property Documentation}{24}{subsection.5.5.1}%
+\contentsline {subsubsection}{\numberline {5.5.1.1}CreationDate}{24}{subsubsection.5.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.5.1.2}LastMessageDate}{24}{subsubsection.5.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.5.1.3}ReplyCount}{24}{subsubsection.5.5.1.3}%
+\contentsline {subsubsection}{\numberline {5.5.1.4}ThreadId}{24}{subsubsection.5.5.1.4}%
+\contentsline {subsubsection}{\numberline {5.5.1.5}Title}{24}{subsubsection.5.5.1.5}%
+\contentsline {subsubsection}{\numberline {5.5.1.6}ViewCount}{24}{subsubsection.5.5.1.6}%
+\contentsline {section}{\numberline {5.6}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Conversations.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Conversation Struct Reference}{25}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Property Documentation}{25}{subsection.5.6.1}%
+\contentsline {subsubsection}{\numberline {5.6.1.1}ConversationId}{25}{subsubsection.5.6.1.1}%
+\contentsline {subsubsection}{\numberline {5.6.1.2}CreationDate}{25}{subsubsection.5.6.1.2}%
+\contentsline {subsubsection}{\numberline {5.6.1.3}CreatorId}{25}{subsubsection.5.6.1.3}%
+\contentsline {subsubsection}{\numberline {5.6.1.4}LastMessageDate}{25}{subsubsection.5.6.1.4}%
+\contentsline {subsubsection}{\numberline {5.6.1.5}LastReadDate}{25}{subsubsection.5.6.1.5}%
+\contentsline {subsubsection}{\numberline {5.6.1.6}Open}{26}{subsubsection.5.6.1.6}%
+\contentsline {subsubsection}{\numberline {5.6.1.7}RecipientIds}{26}{subsubsection.5.6.1.7}%
+\contentsline {subsubsection}{\numberline {5.6.1.8}ReplyCount}{26}{subsubsection.5.6.1.8}%
+\contentsline {subsubsection}{\numberline {5.6.1.9}Title}{26}{subsubsection.5.6.1.9}%
+\contentsline {section}{\numberline {5.7}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Conversation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content Struct Reference}{26}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Property Documentation}{26}{subsection.5.7.1}%
+\contentsline {subsubsection}{\numberline {5.7.1.1}Message}{26}{subsubsection.5.7.1.1}%
+\contentsline {subsubsection}{\numberline {5.7.1.2}RecipientIds}{27}{subsubsection.5.7.1.2}%
+\contentsline {subsubsection}{\numberline {5.7.1.3}Title}{27}{subsubsection.5.7.1.3}%
+\contentsline {section}{\numberline {5.8}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resources.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Download Struct Reference}{27}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Property Documentation}{27}{subsection.5.8.1}%
+\contentsline {subsubsection}{\numberline {5.8.1.1}DownloadDate}{27}{subsubsection.5.8.1.1}%
+\contentsline {subsubsection}{\numberline {5.8.1.2}DownloaderId}{27}{subsubsection.5.8.1.2}%
+\contentsline {subsubsection}{\numberline {5.8.1.3}DownloadId}{27}{subsubsection.5.8.1.3}%
+\contentsline {subsubsection}{\numberline {5.8.1.4}VersionId}{28}{subsubsection.5.8.1.4}%
+\contentsline {section}{\numberline {5.9}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Endpoints Class Reference}{28}{section.5.9}%
+\contentsline {subsection}{\numberline {5.9.1}Member Data Documentation}{28}{subsection.5.9.1}%
+\contentsline {subsubsection}{\numberline {5.9.1.1}ALERTS}{28}{subsubsection.5.9.1.1}%
+\contentsline {subsubsection}{\numberline {5.9.1.2}CONVERSATIONS}{28}{subsubsection.5.9.1.2}%
+\contentsline {subsubsection}{\numberline {5.9.1.3}CONVERSATIONS\_ID}{28}{subsubsection.5.9.1.3}%
+\contentsline {subsubsection}{\numberline {5.9.1.4}DOWNLOADS}{29}{subsubsection.5.9.1.4}%
+\contentsline {subsubsection}{\numberline {5.9.1.5}HEALTH}{29}{subsubsection.5.9.1.5}%
+\contentsline {subsubsection}{\numberline {5.9.1.6}LICENSES}{29}{subsubsection.5.9.1.6}%
+\contentsline {subsubsection}{\numberline {5.9.1.7}MEMBERS}{29}{subsubsection.5.9.1.7}%
+\contentsline {subsubsection}{\numberline {5.9.1.8}PROFILE\_POSTS}{29}{subsubsection.5.9.1.8}%
+\contentsline {subsubsection}{\numberline {5.9.1.9}PURCHASES}{29}{subsubsection.5.9.1.9}%
+\contentsline {subsubsection}{\numberline {5.9.1.10}REPLIES}{29}{subsubsection.5.9.1.10}%
+\contentsline {subsubsection}{\numberline {5.9.1.11}RESOURCES}{30}{subsubsection.5.9.1.11}%
+\contentsline {subsubsection}{\numberline {5.9.1.12}REVIEWS}{30}{subsubsection.5.9.1.12}%
+\contentsline {subsubsection}{\numberline {5.9.1.13}UPDATES}{30}{subsubsection.5.9.1.13}%
+\contentsline {subsubsection}{\numberline {5.9.1.14}VERSIONS}{30}{subsubsection.5.9.1.14}%
+\contentsline {section}{\numberline {5.10}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Error Struct Reference}{30}{section.5.10}%
+\contentsline {subsection}{\numberline {5.10.1}Property Documentation}{30}{subsection.5.10.1}%
+\contentsline {subsubsection}{\numberline {5.10.1.1}Code}{30}{subsubsection.5.10.1.1}%
+\contentsline {subsubsection}{\numberline {5.10.1.2}Message}{31}{subsubsection.5.10.1.2}%
+\contentsline {section}{\numberline {5.11}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resources.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}License Struct Reference}{31}{section.5.11}%
+\contentsline {subsection}{\numberline {5.11.1}Property Documentation}{31}{subsection.5.11.1}%
+\contentsline {subsubsection}{\numberline {5.11.1.1}Active}{31}{subsubsection.5.11.1.1}%
+\contentsline {subsubsection}{\numberline {5.11.1.2}EndDate}{31}{subsubsection.5.11.1.2}%
+\contentsline {subsubsection}{\numberline {5.11.1.3}LicenseId}{31}{subsubsection.5.11.1.3}%
+\contentsline {subsubsection}{\numberline {5.11.1.4}PreviousEndDate}{32}{subsubsection.5.11.1.4}%
+\contentsline {subsubsection}{\numberline {5.11.1.5}PurchaserId}{32}{subsubsection.5.11.1.5}%
+\contentsline {subsubsection}{\numberline {5.11.1.6}PurchaserName}{32}{subsubsection.5.11.1.6}%
+\contentsline {subsubsection}{\numberline {5.11.1.7}StartDate}{32}{subsubsection.5.11.1.7}%
+\contentsline {subsubsection}{\numberline {5.11.1.8}Validated}{32}{subsubsection.5.11.1.8}%
+\contentsline {section}{\numberline {5.12}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}License\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content Struct Reference}{32}{section.5.12}%
+\contentsline {subsection}{\numberline {5.12.1}Property Documentation}{32}{subsection.5.12.1}%
+\contentsline {subsubsection}{\numberline {5.12.1.1}Active}{33}{subsubsection.5.12.1.1}%
+\contentsline {subsubsection}{\numberline {5.12.1.2}EndDate}{33}{subsubsection.5.12.1.2}%
+\contentsline {subsubsection}{\numberline {5.12.1.3}Permanent}{33}{subsubsection.5.12.1.3}%
+\contentsline {subsubsection}{\numberline {5.12.1.4}PurchaserId}{33}{subsubsection.5.12.1.4}%
+\contentsline {subsubsection}{\numberline {5.12.1.5}StartDate}{33}{subsubsection.5.12.1.5}%
+\contentsline {section}{\numberline {5.13}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Members.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Member Struct Reference}{33}{section.5.13}%
+\contentsline {subsection}{\numberline {5.13.1}Property Documentation}{34}{subsection.5.13.1}%
+\contentsline {subsubsection}{\numberline {5.13.1.1}Banned}{34}{subsubsection.5.13.1.1}%
+\contentsline {subsubsection}{\numberline {5.13.1.2}Disabled}{34}{subsubsection.5.13.1.2}%
+\contentsline {subsubsection}{\numberline {5.13.1.3}JoinDate}{34}{subsubsection.5.13.1.3}%
+\contentsline {subsubsection}{\numberline {5.13.1.4}LastActivityDate}{34}{subsubsection.5.13.1.4}%
+\contentsline {subsubsection}{\numberline {5.13.1.5}MemberId}{34}{subsubsection.5.13.1.5}%
+\contentsline {subsubsection}{\numberline {5.13.1.6}NegativeFeedback}{34}{subsubsection.5.13.1.6}%
+\contentsline {subsubsection}{\numberline {5.13.1.7}NeutralFeedback}{34}{subsubsection.5.13.1.7}%
+\contentsline {subsubsection}{\numberline {5.13.1.8}PositiveFeedback}{35}{subsubsection.5.13.1.8}%
+\contentsline {subsubsection}{\numberline {5.13.1.9}PostCount}{35}{subsubsection.5.13.1.9}%
+\contentsline {subsubsection}{\numberline {5.13.1.10}PurchaseCount}{35}{subsubsection.5.13.1.10}%
+\contentsline {subsubsection}{\numberline {5.13.1.11}ResourceCount}{35}{subsubsection.5.13.1.11}%
+\contentsline {subsubsection}{\numberline {5.13.1.12}Restricted}{35}{subsubsection.5.13.1.12}%
+\contentsline {subsubsection}{\numberline {5.13.1.13}Username}{35}{subsubsection.5.13.1.13}%
+\contentsline {section}{\numberline {5.14}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Message\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content Struct Reference}{35}{section.5.14}%
+\contentsline {subsection}{\numberline {5.14.1}Property Documentation}{36}{subsection.5.14.1}%
+\contentsline {subsubsection}{\numberline {5.14.1.1}Message}{36}{subsubsection.5.14.1.1}%
+\contentsline {section}{\numberline {5.15}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Members.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Profile\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Post Struct Reference}{36}{section.5.15}%
+\contentsline {subsection}{\numberline {5.15.1}Property Documentation}{36}{subsection.5.15.1}%
+\contentsline {subsubsection}{\numberline {5.15.1.1}AuthorId}{36}{subsubsection.5.15.1.1}%
+\contentsline {subsubsection}{\numberline {5.15.1.2}CommentCount}{36}{subsubsection.5.15.1.2}%
+\contentsline {subsubsection}{\numberline {5.15.1.3}Message}{36}{subsubsection.5.15.1.3}%
+\contentsline {subsubsection}{\numberline {5.15.1.4}PostDate}{37}{subsubsection.5.15.1.4}%
+\contentsline {subsubsection}{\numberline {5.15.1.5}ProfilePostId}{37}{subsubsection.5.15.1.5}%
+\contentsline {section}{\numberline {5.16}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resources.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Purchase Struct Reference}{37}{section.5.16}%
+\contentsline {subsection}{\numberline {5.16.1}Property Documentation}{37}{subsection.5.16.1}%
+\contentsline {subsubsection}{\numberline {5.16.1.1}Currency}{37}{subsubsection.5.16.1.1}%
+\contentsline {subsubsection}{\numberline {5.16.1.2}LicenseId}{37}{subsubsection.5.16.1.2}%
+\contentsline {subsubsection}{\numberline {5.16.1.3}Price}{38}{subsubsection.5.16.1.3}%
+\contentsline {subsubsection}{\numberline {5.16.1.4}PurchaseDate}{38}{subsubsection.5.16.1.4}%
+\contentsline {subsubsection}{\numberline {5.16.1.5}PurchaseId}{38}{subsubsection.5.16.1.5}%
+\contentsline {subsubsection}{\numberline {5.16.1.6}PurchaserId}{38}{subsubsection.5.16.1.6}%
+\contentsline {subsubsection}{\numberline {5.16.1.7}Renewal}{38}{subsubsection.5.16.1.7}%
+\contentsline {subsubsection}{\numberline {5.16.1.8}Status}{38}{subsubsection.5.16.1.8}%
+\contentsline {subsubsection}{\numberline {5.16.1.9}ValidationDate}{38}{subsubsection.5.16.1.9}%
+\contentsline {section}{\numberline {5.17}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Conversations.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reply Struct Reference}{39}{section.5.17}%
+\contentsline {subsection}{\numberline {5.17.1}Property Documentation}{39}{subsection.5.17.1}%
+\contentsline {subsubsection}{\numberline {5.17.1.1}AuthorId}{39}{subsubsection.5.17.1.1}%
+\contentsline {subsubsection}{\numberline {5.17.1.2}Message}{39}{subsubsection.5.17.1.2}%
+\contentsline {subsubsection}{\numberline {5.17.1.3}MessageDate}{39}{subsubsection.5.17.1.3}%
+\contentsline {subsubsection}{\numberline {5.17.1.4}MessageId}{39}{subsubsection.5.17.1.4}%
+\contentsline {section}{\numberline {5.18}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Threads.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reply Struct Reference}{39}{section.5.18}%
+\contentsline {subsection}{\numberline {5.18.1}Property Documentation}{40}{subsection.5.18.1}%
+\contentsline {subsubsection}{\numberline {5.18.1.1}AuthorId}{40}{subsubsection.5.18.1.1}%
+\contentsline {subsubsection}{\numberline {5.18.1.2}Message}{40}{subsubsection.5.18.1.2}%
+\contentsline {subsubsection}{\numberline {5.18.1.3}PostDate}{40}{subsubsection.5.18.1.3}%
+\contentsline {subsubsection}{\numberline {5.18.1.4}ReplyId}{40}{subsubsection.5.18.1.4}%
+\contentsline {section}{\numberline {5.19}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resources.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resource Struct Reference}{40}{section.5.19}%
+\contentsline {subsection}{\numberline {5.19.1}Property Documentation}{41}{subsection.5.19.1}%
+\contentsline {subsubsection}{\numberline {5.19.1.1}AuthorId}{41}{subsubsection.5.19.1.1}%
+\contentsline {subsubsection}{\numberline {5.19.1.2}CategoryTitle}{41}{subsubsection.5.19.1.2}%
+\contentsline {subsubsection}{\numberline {5.19.1.3}Currency}{41}{subsubsection.5.19.1.3}%
+\contentsline {subsubsection}{\numberline {5.19.1.4}CurrentVersionId}{41}{subsubsection.5.19.1.4}%
+\contentsline {subsubsection}{\numberline {5.19.1.5}Description}{41}{subsubsection.5.19.1.5}%
+\contentsline {subsubsection}{\numberline {5.19.1.6}DownloadCount}{41}{subsubsection.5.19.1.6}%
+\contentsline {subsubsection}{\numberline {5.19.1.7}LastReleaseDate}{41}{subsubsection.5.19.1.7}%
+\contentsline {subsubsection}{\numberline {5.19.1.8}Price}{42}{subsubsection.5.19.1.8}%
+\contentsline {subsubsection}{\numberline {5.19.1.9}PurchaseCount}{42}{subsubsection.5.19.1.9}%
+\contentsline {subsubsection}{\numberline {5.19.1.10}ReleaseDate}{42}{subsubsection.5.19.1.10}%
+\contentsline {subsubsection}{\numberline {5.19.1.11}ResourceId}{42}{subsubsection.5.19.1.11}%
+\contentsline {subsubsection}{\numberline {5.19.1.12}ReviewAverage}{42}{subsubsection.5.19.1.12}%
+\contentsline {subsubsection}{\numberline {5.19.1.13}ReviewCount}{42}{subsubsection.5.19.1.13}%
+\contentsline {subsubsection}{\numberline {5.19.1.14}TagLine}{42}{subsubsection.5.19.1.14}%
+\contentsline {subsubsection}{\numberline {5.19.1.15}Title}{43}{subsubsection.5.19.1.15}%
+\contentsline {section}{\numberline {5.20}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resource\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content Struct Reference}{43}{section.5.20}%
+\contentsline {subsection}{\numberline {5.20.1}Property Documentation}{43}{subsection.5.20.1}%
+\contentsline {subsubsection}{\numberline {5.20.1.1}Description}{43}{subsubsection.5.20.1.1}%
+\contentsline {subsubsection}{\numberline {5.20.1.2}Tagline}{43}{subsubsection.5.20.1.2}%
+\contentsline {subsubsection}{\numberline {5.20.1.3}Title}{43}{subsubsection.5.20.1.3}%
+\contentsline {section}{\numberline {5.21}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Response$<$ T $>$ Struct Template Reference}{44}{section.5.21}%
+\contentsline {subsection}{\numberline {5.21.1}Property Documentation}{44}{subsection.5.21.1}%
+\contentsline {subsubsection}{\numberline {5.21.1.1}Data}{44}{subsubsection.5.21.1.1}%
+\contentsline {subsubsection}{\numberline {5.21.1.2}Error}{44}{subsubsection.5.21.1.2}%
+\contentsline {subsubsection}{\numberline {5.21.1.3}Result}{44}{subsubsection.5.21.1.3}%
+\contentsline {subsubsection}{\numberline {5.21.1.4}RetryAfterMilliseconds}{44}{subsubsection.5.21.1.4}%
+\contentsline {section}{\numberline {5.22}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Response\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content Struct Reference}{44}{section.5.22}%
+\contentsline {subsection}{\numberline {5.22.1}Property Documentation}{45}{subsection.5.22.1}%
+\contentsline {subsubsection}{\numberline {5.22.1.1}Response}{45}{subsubsection.5.22.1.1}%
+\contentsline {section}{\numberline {5.23}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resources.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Review Struct Reference}{45}{section.5.23}%
+\contentsline {subsection}{\numberline {5.23.1}Property Documentation}{45}{subsection.5.23.1}%
+\contentsline {subsubsection}{\numberline {5.23.1.1}Message}{45}{subsubsection.5.23.1.1}%
+\contentsline {subsubsection}{\numberline {5.23.1.2}Rating}{45}{subsubsection.5.23.1.2}%
+\contentsline {subsubsection}{\numberline {5.23.1.3}Response}{45}{subsubsection.5.23.1.3}%
+\contentsline {subsubsection}{\numberline {5.23.1.4}ReviewDate}{46}{subsubsection.5.23.1.4}%
+\contentsline {subsubsection}{\numberline {5.23.1.5}ReviewerId}{46}{subsubsection.5.23.1.5}%
+\contentsline {subsubsection}{\numberline {5.23.1.6}ReviewId}{46}{subsubsection.5.23.1.6}%
+\contentsline {section}{\numberline {5.24}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Self\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Update\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content Struct Reference}{46}{section.5.24}%
+\contentsline {subsection}{\numberline {5.24.1}Property Documentation}{46}{subsection.5.24.1}%
+\contentsline {subsubsection}{\numberline {5.24.1.1}AboutMe}{46}{subsubsection.5.24.1.1}%
+\contentsline {subsubsection}{\numberline {5.24.1.2}CustomTitle}{46}{subsubsection.5.24.1.2}%
+\contentsline {subsubsection}{\numberline {5.24.1.3}Signature}{47}{subsubsection.5.24.1.3}%
+\contentsline {section}{\numberline {5.25}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sortable Struct Reference}{47}{section.5.25}%
+\contentsline {subsection}{\numberline {5.25.1}Member Function Documentation}{47}{subsection.5.25.1}%
+\contentsline {subsubsection}{\numberline {5.25.1.1}ToDict()}{47}{subsubsection.5.25.1.1}%
+\contentsline {subsection}{\numberline {5.25.2}Property Documentation}{47}{subsection.5.25.2}%
+\contentsline {subsubsection}{\numberline {5.25.2.1}Order}{47}{subsubsection.5.25.2.1}%
+\contentsline {subsubsection}{\numberline {5.25.2.2}Page}{48}{subsubsection.5.25.2.2}%
+\contentsline {subsubsection}{\numberline {5.25.2.3}Sort}{48}{subsubsection.5.25.2.3}%
+\contentsline {section}{\numberline {5.26}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Threads.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Thread Struct Reference}{48}{section.5.26}%
+\contentsline {subsection}{\numberline {5.26.1}Property Documentation}{48}{subsection.5.26.1}%
+\contentsline {subsubsection}{\numberline {5.26.1.1}ForumName}{48}{subsubsection.5.26.1.1}%
+\contentsline {subsubsection}{\numberline {5.26.1.2}LastPostDate}{48}{subsubsection.5.26.1.2}%
+\contentsline {subsubsection}{\numberline {5.26.1.3}PostDate}{49}{subsubsection.5.26.1.3}%
+\contentsline {subsubsection}{\numberline {5.26.1.4}ReplyCount}{49}{subsubsection.5.26.1.4}%
+\contentsline {subsubsection}{\numberline {5.26.1.5}ThreadId}{49}{subsubsection.5.26.1.5}%
+\contentsline {subsubsection}{\numberline {5.26.1.6}ThreadOpen}{49}{subsubsection.5.26.1.6}%
+\contentsline {subsubsection}{\numberline {5.26.1.7}ThreadType}{49}{subsubsection.5.26.1.7}%
+\contentsline {subsubsection}{\numberline {5.26.1.8}Title}{49}{subsubsection.5.26.1.8}%
+\contentsline {subsubsection}{\numberline {5.26.1.9}ViewCount}{49}{subsubsection.5.26.1.9}%
+\contentsline {section}{\numberline {5.27}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resources.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Update Struct Reference}{50}{section.5.27}%
+\contentsline {subsection}{\numberline {5.27.1}Property Documentation}{50}{subsection.5.27.1}%
+\contentsline {subsubsection}{\numberline {5.27.1.1}Message}{50}{subsubsection.5.27.1.1}%
+\contentsline {subsubsection}{\numberline {5.27.1.2}Title}{50}{subsubsection.5.27.1.2}%
+\contentsline {subsubsection}{\numberline {5.27.1.3}UpdateDate}{50}{subsubsection.5.27.1.3}%
+\contentsline {subsubsection}{\numberline {5.27.1.4}UpdateId}{50}{subsubsection.5.27.1.4}%
+\contentsline {section}{\numberline {5.28}mcm4csharp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}v1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resources.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Version Struct Reference}{50}{section.5.28}%
+\contentsline {subsection}{\numberline {5.28.1}Property Documentation}{51}{subsection.5.28.1}%
+\contentsline {subsubsection}{\numberline {5.28.1.1}DownloadCount}{51}{subsubsection.5.28.1.1}%
+\contentsline {subsubsection}{\numberline {5.28.1.2}Name}{51}{subsubsection.5.28.1.2}%
+\contentsline {subsubsection}{\numberline {5.28.1.3}ReleaseDate}{51}{subsubsection.5.28.1.3}%
+\contentsline {subsubsection}{\numberline {5.28.1.4}UpdateId}{51}{subsubsection.5.28.1.4}%
+\contentsline {subsubsection}{\numberline {5.28.1.5}VersionId}{51}{subsubsection.5.28.1.5}%
+\contentsline {chapter}{\numberline {6}File Documentation}{53}{chapter.6}%
+\contentsline {section}{\numberline {6.1}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/net6.0/.NETCore\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App,Version=v6.0.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{53}{section.6.1}%
+\contentsline {section}{\numberline {6.2}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/net6.0/.NETCore\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App,Version=v6.0.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{53}{section.6.2}%
+\contentsline {section}{\numberline {6.3}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/net6.0/mcm4csharp.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{53}{section.6.3}%
+\contentsline {section}{\numberline {6.4}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/net6.0/mcm4csharp.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{53}{section.6.4}%
+\contentsline {section}{\numberline {6.5}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/net6.0/mcm4csharp.Global\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usings.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{53}{section.6.5}%
+\contentsline {section}{\numberline {6.6}obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Release/net6.0/mcm4csharp.Global\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Usings.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{53}{section.6.6}%
+\contentsline {section}{\numberline {6.7}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Api\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client.cs File Reference}{53}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Typedef Documentation}{54}{subsection.6.7.1}%
+\contentsline {subsubsection}{\numberline {6.7.1.1}Thread}{54}{subsubsection.6.7.1.1}%
+\contentsline {subsubsection}{\numberline {6.7.1.2}Version}{54}{subsubsection.6.7.1.2}%
+\contentsline {section}{\numberline {6.8}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Endpoints.cs File Reference}{54}{section.6.8}%
+\contentsline {section}{\numberline {6.9}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Token\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type.cs File Reference}{54}{section.6.9}%
+\contentsline {section}{\numberline {6.10}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alerts/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alert.cs File Reference}{55}{section.6.10}%
+\contentsline {section}{\numberline {6.11}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Conversation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.cs File Reference}{55}{section.6.11}%
+\contentsline {section}{\numberline {6.12}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Error.cs File Reference}{55}{section.6.12}%
+\contentsline {section}{\numberline {6.13}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}License\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.cs File Reference}{55}{section.6.13}%
+\contentsline {section}{\numberline {6.14}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Message\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.cs File Reference}{56}{section.6.14}%
+\contentsline {section}{\numberline {6.15}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resource\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.cs File Reference}{56}{section.6.15}%
+\contentsline {section}{\numberline {6.16}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Response.cs File Reference}{56}{section.6.16}%
+\contentsline {section}{\numberline {6.17}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Response\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.cs File Reference}{57}{section.6.17}%
+\contentsline {section}{\numberline {6.18}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Self\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Update\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.cs File Reference}{57}{section.6.18}%
+\contentsline {section}{\numberline {6.19}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sortable.cs File Reference}{57}{section.6.19}%
+\contentsline {section}{\numberline {6.20}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Conversations/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Conversation.cs File Reference}{57}{section.6.20}%
+\contentsline {section}{\numberline {6.21}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Members/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ban.cs File Reference}{58}{section.6.21}%
+\contentsline {section}{\numberline {6.22}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Members/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Member.cs File Reference}{58}{section.6.22}%
+\contentsline {section}{\numberline {6.23}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Members/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Profile\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Post.cs File Reference}{58}{section.6.23}%
+\contentsline {section}{\numberline {6.24}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resources/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Basic\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resource.cs File Reference}{59}{section.6.24}%
+\contentsline {section}{\numberline {6.25}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resources/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Download.cs File Reference}{59}{section.6.25}%
+\contentsline {section}{\numberline {6.26}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resources/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}License.cs File Reference}{59}{section.6.26}%
+\contentsline {section}{\numberline {6.27}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resources/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Purchase.cs File Reference}{59}{section.6.27}%
+\contentsline {section}{\numberline {6.28}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resources/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resource.cs File Reference}{60}{section.6.28}%
+\contentsline {section}{\numberline {6.29}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resources/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Review.cs File Reference}{60}{section.6.29}%
+\contentsline {section}{\numberline {6.30}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resources/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Update.cs File Reference}{60}{section.6.30}%
+\contentsline {section}{\numberline {6.31}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Resources/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Version.cs File Reference}{61}{section.6.31}%
+\contentsline {section}{\numberline {6.32}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Threads/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Basic\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Thread.cs File Reference}{61}{section.6.32}%
+\contentsline {section}{\numberline {6.33}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Conversations/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reply.cs File Reference}{61}{section.6.33}%
+\contentsline {section}{\numberline {6.34}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Threads/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reply.cs File Reference}{61}{section.6.34}%
+\contentsline {section}{\numberline {6.35}v1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Threads/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Thread.cs File Reference}{62}{section.6.35}%
+\contentsline {chapter}{Index}{63}{section*.102}%

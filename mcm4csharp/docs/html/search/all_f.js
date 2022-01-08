@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['page_0',['Page',['../structmcm4csharp_1_1v1_1_1_data_1_1_content_1_1_sortable.html#a28f822e25c0deb3d4b64f2d14d12a3b2',1,'mcm4csharp::v1::Data::Content::Sortable']]],
+  ['permanent_1',['Permanent',['../structmcm4csharp_1_1v1_1_1_data_1_1_content_1_1_license_content.html#af784fe1043bf711e781f5477cd420bd6',1,'mcm4csharp::v1::Data::Content::LicenseContent']]],
+  ['positivefeedback_2',['PositiveFeedback',['../structmcm4csharp_1_1v1_1_1_data_1_1_members_1_1_member.html#a67e1bd2110a3b4a7ac64ec10e304aae1',1,'mcm4csharp::v1::Data::Members::Member']]],
+  ['postcount_3',['PostCount',['../structmcm4csharp_1_1v1_1_1_data_1_1_members_1_1_member.html#a5534f6f6e8aa2ff701cbdb69a288c301',1,'mcm4csharp::v1::Data::Members::Member']]],
+  ['postdate_4',['PostDate',['../structmcm4csharp_1_1v1_1_1_data_1_1_members_1_1_profile_post.html#a9cd82ce64b8999536af7914988a2f6d8',1,'mcm4csharp.v1.Data.Members.ProfilePost.PostDate()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_threads_1_1_reply.html#a5d71e065cb9c04e6a0732fd81cd3b7de',1,'mcm4csharp.v1.Data.Threads.Reply.PostDate()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_threads_1_1_thread.html#aaafa10c78d32fce7e2256f94e6314e71',1,'mcm4csharp.v1.Data.Threads.Thread.PostDate()']]],
+  ['previousenddate_5',['PreviousEndDate',['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_license.html#ac18ef9d06734c4cbc381165c3b03dbcf',1,'mcm4csharp::v1::Data::Resources::License']]],
+  ['price_6',['Price',['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_basic_resource.html#a09e3693481ca0f3f8f64d62b8c54d3f8',1,'mcm4csharp.v1.Data.Resources.BasicResource.Price()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_purchase.html#a4cb08fd3c51bead86ec4fab4d218a341',1,'mcm4csharp.v1.Data.Resources.Purchase.Price()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_resource.html#ab9d3cb00e2cf491f4d8c5fc67fe94a8b',1,'mcm4csharp.v1.Data.Resources.Resource.Price()']]],
+  ['private_7',['Private',['../namespacemcm4csharp_1_1v1_1_1_client.html#a34a301b631835795cb54561206d2f3f4a47f9082fc380ca62d531096aa1d110f1',1,'mcm4csharp::v1::Client']]],
+  ['profile_5fposts_8',['PROFILE_POSTS',['../classmcm4csharp_1_1v1_1_1_client_1_1_endpoints.html#a0a39a9e2ff5a7044a39af878ad00d2bc',1,'mcm4csharp::v1::Client::Endpoints']]],
+  ['profilepost_9',['ProfilePost',['../structmcm4csharp_1_1v1_1_1_data_1_1_members_1_1_profile_post.html',1,'mcm4csharp::v1::Data::Members']]],
+  ['profilepost_2ecs_10',['ProfilePost.cs',['../_profile_post_8cs.html',1,'']]],
+  ['profilepostid_11',['ProfilePostId',['../structmcm4csharp_1_1v1_1_1_data_1_1_members_1_1_profile_post.html#a1385a66157e43c9d28284b3224c42c18',1,'mcm4csharp::v1::Data::Members::ProfilePost']]],
+  ['purchase_12',['Purchase',['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_purchase.html',1,'mcm4csharp::v1::Data::Resources']]],
+  ['purchase_2ecs_13',['Purchase.cs',['../_purchase_8cs.html',1,'']]],
+  ['purchasecount_14',['PurchaseCount',['../structmcm4csharp_1_1v1_1_1_data_1_1_members_1_1_member.html#aaa023b74b97928b4e9a4732806af121c',1,'mcm4csharp.v1.Data.Members.Member.PurchaseCount()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_resource.html#ae68f11d91c092008bc5b7240bcde9852',1,'mcm4csharp.v1.Data.Resources.Resource.PurchaseCount()']]],
+  ['purchasedate_15',['PurchaseDate',['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_purchase.html#aef260ae091f7863e594bcee20934ec67',1,'mcm4csharp::v1::Data::Resources::Purchase']]],
+  ['purchaseid_16',['PurchaseId',['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_purchase.html#a7ee96bddd5b4efb790d5a32847fafe6c',1,'mcm4csharp::v1::Data::Resources::Purchase']]],
+  ['purchaserid_17',['PurchaserId',['../structmcm4csharp_1_1v1_1_1_data_1_1_content_1_1_license_content.html#a41174d660b492d0582fe6f7758dd7b53',1,'mcm4csharp.v1.Data.Content.LicenseContent.PurchaserId()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_license.html#abe544a3428617d020882c1ed4724855d',1,'mcm4csharp.v1.Data.Resources.License.PurchaserId()'],['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_purchase.html#a56aff209216108538090aade68fb3a73',1,'mcm4csharp.v1.Data.Resources.Purchase.PurchaserId()']]],
+  ['purchasername_18',['PurchaserName',['../structmcm4csharp_1_1v1_1_1_data_1_1_resources_1_1_license.html#a1ae3885a7d28ea6b3d33eb15aed5b802',1,'mcm4csharp::v1::Data::Resources::License']]],
+  ['purchases_19',['PURCHASES',['../classmcm4csharp_1_1v1_1_1_client_1_1_endpoints.html#a08008b4fc611efc7b87d064328f79294',1,'mcm4csharp::v1::Client::Endpoints']]]
+];
