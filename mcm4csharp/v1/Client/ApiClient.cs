@@ -440,6 +440,76 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Update> (updateReq);
 		}
 
+		/*
+		 * Reviews
+		 */
+
+		public async Task<Response<Review []>> GetResourceReviewsAsync (uint id, Sortable? sortingOptions = null)
+		{
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
+
+			var reviewUri = this.buildUri (Endpoints.REVIEWS, pathParams: opt, replacements: new () {
+				{ "{res_id}", id.ToString () },
+				{ "{rev_id}", "" }
+			});
+			var reviewReq = this.prepareRequest (HttpMethod.Get, reviewUri);
+
+			return await this.buildResponseAsync<Review []> (reviewReq);
+		}
+
+		public async Task<Response<Review>> GetResourceReviewAsync(uint resId, uint memberId)
+		{
+			var reviewUri = this.buildUri (Endpoints.REVIEWS, replacements: new () {
+				{ "{res_id}", resId.ToString () },
+				{ "{rev_id}", "members/" + memberId.ToString() }
+			});
+			var reviewReq = this.prepareRequest (HttpMethod.Get, reviewUri);
+
+			return await this.buildResponseAsync<Review> (reviewReq);
+		}
+
+		public async Task<Response<string>> RespondReviewAsync(uint resId, uint revId, ResponseContent content)
+		{
+			var reviewUri = this.buildUri (Endpoints.REVIEWS, replacements: new () {
+				{ "{res_id}", resId.ToString () },
+				{ "{rev_id}", revId.ToString() }
+			});
+			var reviewReq = this.prepareRequest (HttpMethod.Patch, reviewUri, content);
+
+			return await this.buildResponseAsync<string> (reviewReq);
+		}
+
+		/*
+		 * Purchases
+		 */
+
+		public async Task<Response<Purchase []>> GetPurchasesAsync (uint id, Sortable? sortingOptions = null)
+		{
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
+
+			var purchUri = this.buildUri (Endpoints.PURCHASES, pathParams: opt, replacements: new () {
+				{ "{r_id}", id.ToString () },
+				{ "{p_id}", "" }
+			});
+			var purchReq = this.prepareRequest (HttpMethod.Get, purchUri);
+
+			return await this.buildResponseAsync<Purchase []> (purchReq);
+		}
+
+		public async Task<Response<Purchase>> GetPurchaseAsync (uint resId, uint purchId)
+		{
+			var purchUri = this.buildUri (Endpoints.PURCHASES, replacements: new () {
+				{ "{r_id}", resId.ToString () },
+				{ "{p_id}", purchId.ToString() }
+			});
+			var purchReq = this.prepareRequest (HttpMethod.Get, purchUri);
+
+			return await this.buildResponseAsync<Purchase> (purchReq);
+		}
+
+		/*
+		 * Licenses
+		 */
 	}
 }
 
