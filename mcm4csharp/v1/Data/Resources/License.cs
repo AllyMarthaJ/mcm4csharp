@@ -9,6 +9,10 @@ namespace mcm4csharp.v1.Data.Resources {
 		[JsonPropertyName ("purchaser_id")]
 		public uint PurchaserId { get; set; }
 
+		// some bizarre choice for "Get resource license by member", add optional thing here.
+		[JsonPropertyName("purchaser_name")]
+		public string PurchaserName { get; set; }
+
 		[JsonPropertyName ("validated")]
 		public bool Validated { get; set; }
 

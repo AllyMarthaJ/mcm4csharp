@@ -14,6 +14,7 @@ namespace mcm4csharp.v1.Client
 		public const string UPDATES = "v1/resources/{r_id}/updates/{u_id}";
 		public const string REVIEWS = "v1/resources/{res_id}/reviews/{rev_id}";
 		public const string PURCHASES = "v1/resources/{r_id}/purchases/{p_id}";
+		public const string LICENSES = "v1/resources/{r_id}/licenses/{l_id}";
 	}
 }
 

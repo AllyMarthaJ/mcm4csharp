@@ -457,22 +457,22 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<Review []> (reviewReq);
 		}
 
-		public async Task<Response<Review>> GetResourceReviewAsync(uint resId, uint memberId)
+		public async Task<Response<Review>> GetResourceReviewAsync (uint resId, uint memberId)
 		{
 			var reviewUri = this.buildUri (Endpoints.REVIEWS, replacements: new () {
 				{ "{res_id}", resId.ToString () },
-				{ "{rev_id}", "members/" + memberId.ToString() }
+				{ "{rev_id}", "members/" + memberId.ToString () }
 			});
 			var reviewReq = this.prepareRequest (HttpMethod.Get, reviewUri);
 
 			return await this.buildResponseAsync<Review> (reviewReq);
 		}
 
-		public async Task<Response<string>> RespondReviewAsync(uint resId, uint revId, ResponseContent content)
+		public async Task<Response<string>> RespondReviewAsync (uint resId, uint revId, ResponseContent content)
 		{
 			var reviewUri = this.buildUri (Endpoints.REVIEWS, replacements: new () {
 				{ "{res_id}", resId.ToString () },
-				{ "{rev_id}", revId.ToString() }
+				{ "{rev_id}", revId.ToString () }
 			});
 			var reviewReq = this.prepareRequest (HttpMethod.Patch, reviewUri, content);
 
@@ -500,7 +500,7 @@ namespace mcm4csharp.v1.Client {
 		{
 			var purchUri = this.buildUri (Endpoints.PURCHASES, replacements: new () {
 				{ "{r_id}", resId.ToString () },
-				{ "{p_id}", purchId.ToString() }
+				{ "{p_id}", purchId.ToString () }
 			});
 			var purchReq = this.prepareRequest (HttpMethod.Get, purchUri);
 
@@ -510,6 +510,67 @@ namespace mcm4csharp.v1.Client {
 		/*
 		 * Licenses
 		 */
+
+		public async Task<Response<License []>> GetResourceLicensesAsync (uint id, Sortable? sortingOptions = null)
+		{
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
+
+			var licUri = this.buildUri (Endpoints.LICENSES, pathParams: opt, replacements: new () {
+				{ "{r_id}", id.ToString () },
+				{ "{l_id}", "" }
+			});
+			var licReq = this.prepareRequest (HttpMethod.Get, licUri);
+
+			return await this.buildResponseAsync<License []> (licReq);
+		}
+
+		public async Task<Response<string>> IssueLicenseAsync (uint id, LicenseContent content)
+		{
+			var licUri = this.buildUri (Endpoints.LICENSES, replacements: new () {
+				{ "{r_id}", id.ToString () },
+				{ "{l_id}", "" }
+			});
+			var licReq = this.prepareRequest (HttpMethod.Post, licUri, content);
+
+			return await this.buildResponseAsync<string> (licReq);
+		}
+
+		public async Task<Response<License>> GetResourceLicenseAsync (uint resId, uint licId)
+		{
+			var licUri = this.buildUri (Endpoints.LICENSES, replacements: new () {
+				{ "{r_id}", resId.ToString () },
+				{ "{l_id}", licId.ToString () }
+			});
+			var licReq = this.prepareRequest (HttpMethod.Get, licUri);
+
+			return await this.buildResponseAsync<License> (licReq);
+		}
+
+		public async Task<Response<string>> ModifyLicenseAsync (uint resId, uint licId, LicenseContent content)
+		{
+			var licUri = this.buildUri (Endpoints.LICENSES, replacements: new () {
+				{ "{r_id}", resId.ToString () },
+				{ "{l_id}", licId.ToString() }
+			});
+			var licReq = this.prepareRequest (HttpMethod.Patch, licUri, content);
+
+			return await this.buildResponseAsync<string> (licReq);
+		}
+
+		public async Task<Response<License>> GetResourceLicenseMemberAsync (uint resId, uint memId, uint? nonce, uint? timestamp)
+		{
+			var opt = nonce.HasValue && timestamp.HasValue ? new Dictionary<string, string> () {
+				{ "nonce", nonce.Value.ToString() },
+				{ "timestamp", timestamp.Value.ToString() }
+			} : null;
+			var licUri = this.buildUri (Endpoints.LICENSES, pathParams: opt, replacements: new () {
+				{ "{r_id}", resId.ToString () },
+				{ "{l_id}", "members/" + memId.ToString () }
+			});
+			var licReq = this.prepareRequest (HttpMethod.Get, licUri);
+
+			return await this.buildResponseAsync<License> (licReq);
+		}
 	}
 }
 
