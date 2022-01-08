@@ -22,7 +22,7 @@ public class Program {
 
 		while (!await fetchConversation ()) ;
 
-		var t = new Thread (async () => await writeForever());
+		var t = new Thread (async () => await writeForever ());
 		t.Start ();
 		await runForever ();
 
@@ -70,9 +70,13 @@ Otherwise, you can opt to create a new conversation here.
 		foreach (var conversation in conversations.Data) {
 			Console.WriteLine ($"[{conversation.ConversationId}] {conversation.Title}, {conversation.ReplyCount} messages.");
 		}
-		Console.Write ("Enter the ID of the conversation: ");
+		Console.Write ("Enter the ID of the conversation (n for new): ");
 		try {
-			conversationId = UInt32.Parse (Console.ReadLine ());
+			var input = Console.ReadLine ();
+			if (input == "n" || input == "N")
+				conversationId = await createConversation ();
+			else
+				conversationId = UInt32.Parse (input);
 			return true;
 		} catch {
 			return false;
@@ -142,21 +146,23 @@ Otherwise, you can opt to create a new conversation here.
 	private static async Task runForever ()
 	{
 		while (true) {
-			
+
 			var replies = await chatClient.GetUnreadRepliesAsync (conversationId);
 
-			foreach (var reply in replies.Data.Reverse ()) {
-				if (reply.MessageId > lastMessageId) {
-					Console.WriteLine ($"[{reply.AuthorId}] [{reply.MessageId}] {reply.Message}");
-					lastMessageId = reply.MessageId;
+			if (replies.Data != null && replies.Data.Length > 0)
+				foreach (var reply in replies.Data.Reverse ()) {
+					if (reply.MessageId > lastMessageId) {
+						Console.WriteLine ($"[{reply.AuthorId}] [{reply.MessageId}] {reply.Message}");
+						lastMessageId = reply.MessageId;
+					}
 				}
-			}
 		}
 	}
 
-	private static async Task writeForever()
+	private static async Task writeForever ()
 	{
 		while (true) {
+			Console.Write ("[YOU] ");
 			var msg = Console.ReadLine ();
 			var sendResp = await chatClient.ReplyUnreadConversationAsync (conversationId, new MessageContent () {
 				Message = msg
