@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Text.Json;
 using System.Web;
 using mcm4csharp.v1.Data.Alerts;
 using mcm4csharp.v1.Data.Content;
@@ -39,7 +40,7 @@ namespace mcm4csharp.v1.Client {
 				}
 
 			UriBuilder uriBuilder = new (BaseUri) {
-				Path = endpoint
+				Path = endpoint.Trim ('/')
 			};
 
 			var query = HttpUtility.ParseQueryString ("");
@@ -50,6 +51,8 @@ namespace mcm4csharp.v1.Client {
 				}
 
 			uriBuilder.Query = query.ToString ();
+
+			Console.WriteLine (uriBuilder.Uri.ToString ());
 
 			return uriBuilder.Uri;
 		}
@@ -82,12 +85,14 @@ namespace mcm4csharp.v1.Client {
 		private async Task<Response<T>> buildResponseAsync<T> (HttpRequestMessage request)
 		{
 			var sent = await authClient.SendAsync (request);
-
+			Console.WriteLine (await sent.Content.ReadAsStringAsync ());
 			var response = await sent.Content.ReadFromJsonAsync<Response<T>> ();
 
-			uint retryAfterMs = uint.Parse (sent.Headers.GetValues ("Retry-After").First ());
+			if (sent.Headers.Contains ("Retry-After")) {
+				uint retryAfterMs = uint.Parse (sent.Headers.GetValues ("Retry-After").First ());
 
-			response.RetryAfterMilliseconds = retryAfterMs;
+				response.RetryAfterMilliseconds = retryAfterMs;
+			}
 
 			return response;
 		}
@@ -156,6 +161,7 @@ namespace mcm4csharp.v1.Client {
 		public async Task<Response<Reply []>> GetUnreadRepliesAsync (uint id, Sortable? sortingOptions = null)
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
+
 			var convoUri = this.buildUri (Endpoints.CONVERSATIONS_ID, pathParams: opt, replacements: new () {
 				{ "{id}", id.ToString () }
 			});
@@ -211,7 +217,7 @@ namespace mcm4csharp.v1.Client {
 		public async Task<Response<Member>> GetUserAsync (string username)
 		{
 			var selfUri = this.buildUri (Endpoints.MEMBERS, replacements: new () {
-				{ "{name}", $"username/{username}" }
+				{ "{id}", $"username/{username}" }
 			});
 			var selfReq = this.prepareRequest (HttpMethod.Get, selfUri);
 
@@ -234,10 +240,11 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<ProfilePost []>> GetProfilePostsAsync (Sortable? sortingOptions = null)
 		{
-			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : new ();
-			opt.Add ("id", "");
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
-			var postsUri = this.buildUri (Endpoints.PROFILE_POSTS, pathParams: opt);
+			var postsUri = this.buildUri (Endpoints.PROFILE_POSTS, pathParams: opt, replacements: new () {
+				{ "{id}", "" }
+			});
 			var postsReq = this.prepareRequest (HttpMethod.Get, postsUri);
 
 			return await this.buildResponseAsync<ProfilePost []> (postsReq);
@@ -245,7 +252,7 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<ProfilePost>> GetProfilePostAsync (uint id)
 		{
-			var postUri = this.buildUri (Endpoints.PROFILE_POSTS, pathParams: new () {
+			var postUri = this.buildUri (Endpoints.PROFILE_POSTS, replacements: new () {
 				{ "{id}", id.ToString () },
 			});
 			var postReq = this.prepareRequest (HttpMethod.Get, postUri);
@@ -255,7 +262,7 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<string>> ModifyProfilePostAsync (uint id, MessageContent content)
 		{
-			var postUri = this.buildUri (Endpoints.PROFILE_POSTS, pathParams: new () {
+			var postUri = this.buildUri (Endpoints.PROFILE_POSTS, replacements: new () {
 				{ "{id}", id.ToString () }
 			});
 			var postReq = this.prepareRequest (HttpMethod.Patch, postUri, content);
@@ -265,7 +272,7 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<string>> DeleteProfilePostAsync (uint id)
 		{
-			var postUri = this.buildUri (Endpoints.PROFILE_POSTS, pathParams: new () {
+			var postUri = this.buildUri (Endpoints.PROFILE_POSTS, replacements: new () {
 				{ "{id}", id.ToString () }
 			});
 			var postReq = this.prepareRequest (HttpMethod.Delete, postUri);
@@ -279,10 +286,11 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<BasicResource []>> GetPublicResourcesAsync (Sortable? sortingOptions = null)
 		{
-			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : new ();
-			opt.Add ("{id}", "");
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
-			var resUri = this.buildUri (Endpoints.RESOURCES, pathParams: opt);
+			var resUri = this.buildUri (Endpoints.RESOURCES, pathParams: opt, replacements: new () {
+				{ "{id}", "" }
+			});
 			var resReq = this.prepareRequest (HttpMethod.Get, resUri, sortingOptions);
 
 			return await this.buildResponseAsync<BasicResource []> (resReq);
@@ -290,10 +298,11 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<BasicResource []>> GetOwnedResourcesAsync (Sortable? sortingOptions = null)
 		{
-			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : new ();
-			opt.Add ("{id}", "owned");
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
-			var resUri = this.buildUri (Endpoints.RESOURCES, pathParams: opt);
+			var resUri = this.buildUri (Endpoints.RESOURCES, pathParams: opt, replacements: new () {
+				{ "{id}", "owned" }
+			});
 			var resReq = this.prepareRequest (HttpMethod.Get, resUri, sortingOptions);
 
 			return await this.buildResponseAsync<BasicResource []> (resReq);
@@ -301,10 +310,11 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<BasicResource []>> GetCollaboratedResourcesAsync (Sortable? sortingOptions = null)
 		{
-			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : new ();
-			opt.Add ("{id}", "collaborated");
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
-			var resUri = this.buildUri (Endpoints.RESOURCES, pathParams: opt);
+			var resUri = this.buildUri (Endpoints.RESOURCES, pathParams: opt, replacements: new () {
+				{ "{id}", "collaborated" }
+			});
 			var resReq = this.prepareRequest (HttpMethod.Get, resUri, sortingOptions);
 
 			return await this.buildResponseAsync<BasicResource []> (resReq);
@@ -312,7 +322,7 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<BasicResource>> GetResourceAsync (uint id)
 		{
-			var resUri = this.buildUri (Endpoints.RESOURCES, pathParams: new () {
+			var resUri = this.buildUri (Endpoints.RESOURCES, replacements: new () {
 				{ "{id}", id.ToString () }
 			});
 			var resReq = this.prepareRequest (HttpMethod.Get, resUri);
@@ -322,7 +332,7 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<string>> UpdateResourceAsync (uint id, ResourceContent content)
 		{
-			var resUri = this.buildUri (Endpoints.RESOURCES, pathParams: new () {
+			var resUri = this.buildUri (Endpoints.RESOURCES, replacements: new () {
 				{ "{id}", id.ToString () }
 			});
 			var resReq = this.prepareRequest (HttpMethod.Get, resUri, content);
@@ -336,11 +346,12 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<Version []>> GetResourceVersionsAsync (uint id, Sortable? sortingOptions = null)
 		{
-			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : new ();
-			opt.Add ("{r_id}", id.ToString ());
-			opt.Add ("{v_id}", "");
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
-			var verUri = this.buildUri (Endpoints.VERSIONS, pathParams: opt);
+			var verUri = this.buildUri (Endpoints.VERSIONS, pathParams: opt, replacements: new () {
+				{ "{r_id}", id.ToString () },
+				{ "{v_id}", "" }
+			});
 			var verReq = this.prepareRequest (HttpMethod.Get, verUri, sortingOptions);
 
 			return await this.buildResponseAsync<Version []> (verReq);
@@ -348,7 +359,7 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<Version>> GetLatestVersionAsync (uint id)
 		{
-			var verUri = this.buildUri (Endpoints.VERSIONS, pathParams: new () {
+			var verUri = this.buildUri (Endpoints.VERSIONS, replacements: new () {
 				{ "{r_id}", id.ToString () },
 				{ "{v_id}", "latest" }
 			});
@@ -359,7 +370,7 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<Version>> GetVersionAsync (uint resId, uint versionId)
 		{
-			var verUri = this.buildUri (Endpoints.VERSIONS, pathParams: new () {
+			var verUri = this.buildUri (Endpoints.VERSIONS, replacements: new () {
 				{ "{r_id}", resId.ToString () },
 				{ "{v_id}", versionId.ToString () }
 			});
@@ -370,7 +381,7 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<Version>> DeleteVersionAsync (uint resId, uint versionId)
 		{
-			var verUri = this.buildUri (Endpoints.VERSIONS, pathParams: new () {
+			var verUri = this.buildUri (Endpoints.VERSIONS, replacements: new () {
 				{ "{r_id}", resId.ToString () },
 				{ "{v_id}", versionId.ToString () }
 			});
@@ -385,11 +396,12 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<Update []>> GetResourceUpdatesAsync (uint id, Sortable? sortingOptions = null)
 		{
-			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : new ();
-			opt.Add ("{r_id}", id.ToString ());
-			opt.Add ("{u_id}", "");
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
-			var updateUri = this.buildUri (Endpoints.UPDATES, pathParams: opt);
+			var updateUri = this.buildUri (Endpoints.UPDATES, pathParams: opt, replacements: new () {
+				{ "{r_id}", id.ToString () },
+				{ "{u_id}", "" }
+			});
 			var updateReq = this.prepareRequest (HttpMethod.Get, updateUri, sortingOptions);
 
 			return await this.buildResponseAsync<Update []> (updateReq);
@@ -397,7 +409,7 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<Update>> GetLatestUpdateAsync (uint id)
 		{
-			var updateUri = this.buildUri (Endpoints.UPDATES, pathParams: new () {
+			var updateUri = this.buildUri (Endpoints.UPDATES, replacements: new () {
 				{ "{r_id}", id.ToString () },
 				{ "{u_id}", "latest" }
 			});
@@ -408,7 +420,7 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<Update>> GetUpdateAsync (uint resId, uint updateId)
 		{
-			var updateUri = this.buildUri (Endpoints.UPDATES, pathParams: new () {
+			var updateUri = this.buildUri (Endpoints.UPDATES, replacements: new () {
 				{ "{r_id}", resId.ToString () },
 				{ "{u_id}", updateId.ToString () }
 			});
@@ -419,7 +431,7 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<Update>> DeleteUpdateAsync (uint resId, uint updateId)
 		{
-			var updateUri = this.buildUri (Endpoints.UPDATES, pathParams: new () {
+			var updateUri = this.buildUri (Endpoints.UPDATES, replacements: new () {
 				{ "{r_id}", resId.ToString () },
 				{ "{u_id}", updateId.ToString () }
 			});
