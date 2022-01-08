@@ -76,7 +76,7 @@ Otherwise, you can opt to create a new conversation here.
 			if (input == "n" || input == "N")
 				conversationId = await createConversation ();
 			else
-				conversationId = ulong32.Parse (input);
+				conversationId = UInt64.Parse (input);
 			return true;
 		} catch {
 			return false;
@@ -95,7 +95,7 @@ Otherwise, you can opt to create a new conversation here.
 		try {
 			userIds = users
 				.Split (",")
-				.Select (u => ulong32.Parse (u))
+				.Select (u => UInt64.Parse (u))
 				.ToArray ();
 		} catch {
 			return 0;
