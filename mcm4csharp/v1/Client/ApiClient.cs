@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Web;
 using mcm4csharp.v1.Data.Alerts;
@@ -9,6 +10,9 @@ using mcm4csharp.v1.Data.Content;
 using mcm4csharp.v1.Data.Conversations;
 using mcm4csharp.v1.Data.Members;
 using mcm4csharp.v1.Data.Resources;
+using mcm4csharp.v1.Data.Threads;
+
+using Thread = mcm4csharp.v1.Data.Threads.Thread;
 using Version = mcm4csharp.v1.Data.Resources.Version;
 
 namespace mcm4csharp.v1.Client {
@@ -36,7 +40,7 @@ namespace mcm4csharp.v1.Client {
 			// todo: escape later, this is dangerous
 			if (replacements != null)
 				foreach (var replacement in replacements) {
-					endpoint = endpoint.Replace (replacement.Key, replacement.Value);
+					endpoint = endpoint.Replace (replacement.Key, HttpUtility.UrlEncode(replacement.Value));
 				}
 
 			UriBuilder uriBuilder = new (BaseUri) {
@@ -69,7 +73,9 @@ namespace mcm4csharp.v1.Client {
 		private HttpRequestMessage prepareRequest (HttpMethod method, Uri uri, object? body = null)
 		{
 			HttpRequestMessage request = new (method, uri) {
-				Content = JsonContent.Create (body)
+				Content = JsonContent.Create (body, options: new JsonSerializerOptions() {
+					Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+				})
 			};
 			request.Content.Headers.ContentType = new MediaTypeHeaderValue ("application/json");
 
@@ -86,7 +92,9 @@ namespace mcm4csharp.v1.Client {
 		{
 			var sent = await authClient.SendAsync (request);
 			Console.WriteLine (await sent.Content.ReadAsStringAsync ());
-			var response = await sent.Content.ReadFromJsonAsync<Response<T>> ();
+			var response = await sent.Content.ReadFromJsonAsync<Response<T>> (new JsonSerializerOptions() {
+				Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+			});
 
 			if (sent.Headers.Contains ("Retry-After")) {
 				uint retryAfterMs = uint.Parse (sent.Headers.GetValues ("Retry-After").First ());
@@ -158,7 +166,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<uint> (convoReq);
 		}
 
-		public async Task<Response<Reply []>> GetUnreadRepliesAsync (uint id, Sortable? sortingOptions = null)
+		public async Task<Response<Data.Conversations.Reply []>> GetUnreadRepliesAsync (uint id, Sortable? sortingOptions = null)
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
@@ -167,7 +175,7 @@ namespace mcm4csharp.v1.Client {
 			});
 			var convoReq = this.prepareRequest (HttpMethod.Get, convoUri);
 
-			return await this.buildResponseAsync<Reply []> (convoReq);
+			return await this.buildResponseAsync<Data.Conversations.Reply []> (convoReq);
 		}
 
 		public async Task<Response<uint>> ReplyUnreadConversationAsync (uint id, MessageContent content)
@@ -524,7 +532,7 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<License []> (licReq);
 		}
 
-		public async Task<Response<string>> IssueLicenseAsync (uint id, LicenseContent content)
+		public async Task<Response<uint>> IssueLicenseAsync (uint id, LicenseContent content)
 		{
 			var licUri = this.buildUri (Endpoints.LICENSES, replacements: new () {
 				{ "{r_id}", id.ToString () },
@@ -532,7 +540,7 @@ namespace mcm4csharp.v1.Client {
 			});
 			var licReq = this.prepareRequest (HttpMethod.Post, licUri, content);
 
-			return await this.buildResponseAsync<string> (licReq);
+			return await this.buildResponseAsync<uint> (licReq);
 		}
 
 		public async Task<Response<License>> GetResourceLicenseAsync (uint resId, uint licId)
@@ -550,7 +558,7 @@ namespace mcm4csharp.v1.Client {
 		{
 			var licUri = this.buildUri (Endpoints.LICENSES, replacements: new () {
 				{ "{r_id}", resId.ToString () },
-				{ "{l_id}", licId.ToString() }
+				{ "{l_id}", licId.ToString () }
 			});
 			var licReq = this.prepareRequest (HttpMethod.Patch, licUri, content);
 
@@ -571,6 +579,106 @@ namespace mcm4csharp.v1.Client {
 
 			return await this.buildResponseAsync<License> (licReq);
 		}
+
+		/*
+		 * Downloads
+		 */
+
+		public async Task<Response<Download []>> GetDownloadsAsync (uint id, Sortable? sortingOptions = null)
+		{
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
+
+			var downUri = this.buildUri (Endpoints.DOWNLOADS, pathParams: opt, replacements: new () {
+				{ "{r_id}", id.ToString () },
+				{ "{id}", "" }
+			});
+			var downReq = this.prepareRequest (HttpMethod.Get, downUri);
+
+			return await this.buildResponseAsync<Download []> (downReq);
+		}
+
+		public async Task<Response<Download []>> GetDownloadsMemberAsync (uint resId, uint memId, Sortable? sortingOptions = null)
+		{
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
+
+			var downUri = this.buildUri (Endpoints.DOWNLOADS, pathParams: opt, replacements: new () {
+				{ "{r_id}", resId.ToString () },
+				{ "{id}", "members/" + memId.ToString () }
+			});
+			var downReq = this.prepareRequest (HttpMethod.Get, downUri);
+
+			return await this.buildResponseAsync<Download []> (downReq);
+		}
+
+		public async Task<Response<Download []>> GetDownloadsVersionAsync (uint resId, uint memId, Sortable? sortingOptions = null)
+		{
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
+
+			var downUri = this.buildUri (Endpoints.DOWNLOADS, pathParams: opt, replacements: new () {
+				{ "{r_id}", resId.ToString () },
+				{ "{id}", "versions/" + memId.ToString () }
+			});
+			var downReq = this.prepareRequest (HttpMethod.Get, downUri);
+
+			return await this.buildResponseAsync<Download []> (downReq);
+		}
+
+		/*
+		 * Threads
+		 */
+
+		public async Task<Response<Thread []>> GetThreadsAsync (Sortable? sortingOptions = null)
+		{
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
+
+			var threadUri = this.buildUri (Endpoints.REPLIES, pathParams: opt, replacements: new () {
+				{ "{id}", "" },
+				{ "{id2}", "" },
+			});
+			var threadReq = this.prepareRequest (HttpMethod.Get, threadUri);
+
+			return await this.buildResponseAsync<Thread []> (threadReq);
+		}
+
+		public async Task<Response<Thread>> GetThreadAsync (uint id)
+		{
+			var threadUri = this.buildUri (Endpoints.REPLIES, replacements: new () {
+				{ "{id}", id.ToString () },
+				{ "{id2}", "" },
+			});
+			var threadReq = this.prepareRequest (HttpMethod.Get, threadUri);
+
+			return await this.buildResponseAsync<Thread> (threadReq);
+		}
+
+		/*
+		 * Replies
+		 */
+
+		public async Task<Response<Data.Threads.Reply []>> GetThreadRepliesAsync (uint id, Sortable? sortingOptions = null)
+		{
+			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
+
+			var repliesUri = this.buildUri (Endpoints.REPLIES, pathParams: opt, replacements: new () {
+				{ "{id}", id.ToString () },
+				{ "{id2}", "replies" },
+			});
+			var repliesReq = this.prepareRequest (HttpMethod.Get, repliesUri);
+
+			return await this.buildResponseAsync<Data.Threads.Reply []> (repliesReq);
+		}
+
+		public async Task<Response<uint>> ReplyThreadAsync(uint id, MessageContent content)
+		{
+			var repliesUri = this.buildUri (Endpoints.REPLIES, replacements: new () {
+				{ "{id}", id.ToString () },
+				{ "{id2}", "replies" },
+			});
+			var repliesReq = this.prepareRequest (HttpMethod.Post, repliesUri, content);
+
+			return await this.buildResponseAsync<uint> (repliesReq);
+		}
+
 	}
 }
 
