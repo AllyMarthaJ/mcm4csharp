@@ -27,8 +27,10 @@ namespace mcm4csharp.v1.Client {
 
 		private readonly HttpClient authClient;
 
-		private ulong lastRequest = 0;
-		private ulong lastReplyAfter = 0;
+		private ulong lastWriteRequest = 0;
+		private ulong lastWriteReplyAfter = 0;
+		private ulong lastReadRequest = 0;
+		private ulong lastReadReplyAfter = 0;
 
 		public ApiClient (TokenType type, string token)
 		{
@@ -87,6 +89,41 @@ namespace mcm4csharp.v1.Client {
 			return request;
 		}
 
+		private async Task delayForTimeoutAsync (HttpRequestMessage request)
+		{
+			var currentTime = (ulong)DateTimeOffset.UtcNow.ToUnixTimeMilliseconds ();
+
+			ulong lastRequest = request.Method == HttpMethod.Get ? lastReadRequest : lastWriteRequest;
+			ulong lastReplyAfter = request.Method == HttpMethod.Get ? lastReadReplyAfter : lastWriteReplyAfter;
+
+			if (currentTime <= lastRequest + lastReplyAfter + TimeoutBuffer) {
+				await Task.Delay ((int)(currentTime - lastRequest + lastReplyAfter + TimeoutBuffer));
+			}
+
+			if (request.Method == HttpMethod.Get)
+				Interlocked.Exchange (ref lastReadRequest, currentTime);
+			else
+				Interlocked.Exchange (ref lastWriteRequest, currentTime);
+		}
+
+		private void checkForTimeout<T> (ref Response<T> resp, HttpRequestMessage request, HttpResponseMessage message)
+		{
+			ulong retryAfterMs;
+
+			if (message.Headers.Contains ("Retry-After")) {
+				retryAfterMs = ulong.Parse (message.Headers.GetValues ("Retry-After").First ());
+
+				resp.RetryAfterMilliseconds = retryAfterMs;
+			} else {
+				retryAfterMs = 0;
+			}
+
+			if (request.Method == HttpMethod.Get)
+				Interlocked.Exchange (ref lastReadReplyAfter, retryAfterMs);
+			else
+				Interlocked.Exchange (ref lastWriteReplyAfter, retryAfterMs);
+		}
+
 		/// <summary>
 		/// Sends a request and compiles the given response.
 		/// </summary>
@@ -96,13 +133,7 @@ namespace mcm4csharp.v1.Client {
 		private async Task<Response<T>> buildResponseAsync<T> (HttpRequestMessage request)
 		{
 			if (this.WaitForTimeout) {
-				var currentTime = (ulong)DateTimeOffset.UtcNow.ToUnixTimeMilliseconds ();
-
-				if (currentTime <= lastRequest + lastReplyAfter + TimeoutBuffer) {
-					await Task.Delay ((int)(currentTime - lastRequest + lastReplyAfter + TimeoutBuffer));
-				}
-
-				lastRequest = currentTime;
+				await this.delayForTimeoutAsync (request);
 			}
 
 			try {
@@ -112,13 +143,8 @@ namespace mcm4csharp.v1.Client {
 					Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
 				});
 
-				if (sent.Headers.Contains ("Retry-After")) {
-					ulong retryAfterMs = ulong.Parse (sent.Headers.GetValues ("Retry-After").First ());
-
-					response.RetryAfterMilliseconds = retryAfterMs;
-					lastReplyAfter = retryAfterMs;
-				} else {
-					lastReplyAfter = 0;
+				if (this.WaitForTimeout) {
+					checkForTimeout (ref response, request, sent);
 				}
 
 				return response;
@@ -161,7 +187,7 @@ namespace mcm4csharp.v1.Client {
 		/// <typeparam name="T">Type of response to expect.</typeparam>
 		/// <param name="request">Async function to use to send the request.</param>
 		/// <returns>Request after rate limit.</returns>
-		public async Task<Response<T>> SafeRequestAsync<T>(Func<Task<Response<T>>> request)
+		public async Task<Response<T>> SafeRequestAsync<T> (Func<Task<Response<T>>> request)
 		{
 			Response<T> response;
 			do {
