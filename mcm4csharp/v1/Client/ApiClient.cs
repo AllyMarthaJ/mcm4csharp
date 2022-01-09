@@ -23,6 +23,7 @@ namespace mcm4csharp.v1.Client {
 		public readonly Uri BaseUri = new UriBuilder ("https://api.mc-market.org").Uri;
 
 		public bool WaitForTimeout { get; set; } = true;
+		public ulong TimeoutBuffer = 10;
 
 		private readonly HttpClient authClient;
 
@@ -63,6 +64,8 @@ namespace mcm4csharp.v1.Client {
 
 			uriBuilder.Query = query.ToString ();
 
+			Console.WriteLine (uriBuilder.Uri.ToString ());
+
 			return uriBuilder.Uri;
 		}
 
@@ -97,8 +100,8 @@ namespace mcm4csharp.v1.Client {
 			if (this.WaitForTimeout) {
 				var currentTime = (ulong)DateTimeOffset.UtcNow.ToUnixTimeMilliseconds ();
 
-				if (currentTime <= lastRequest + lastReplyAfter) {
-					await Task.Delay ((int)(currentTime - lastRequest - lastReplyAfter));
+				if (currentTime <= lastRequest + lastReplyAfter + TimeoutBuffer) {
+					await Task.Delay ((int)(currentTime - lastRequest + lastReplyAfter + TimeoutBuffer));
 				}
 
 				lastRequest = currentTime;
@@ -152,6 +155,16 @@ namespace mcm4csharp.v1.Client {
 			var requestReq = this.prepareRequest (method, requestUri, body);
 
 			return await this.buildResponseAsync<T> (requestReq);
+		}
+
+		public async Task<Response<T>> SafeRequestAsync<T>(Func<Task<Response<T>>> request)
+		{
+			Response<T> response;
+			do {
+				response = await request ();
+			} while (response.Error.Code == "RateLimitExceededError");
+
+			return response;
 		}
 
 		// Structure
