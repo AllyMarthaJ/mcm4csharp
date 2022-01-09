@@ -412,35 +412,26 @@ namespace mcm4csharp.v1.Client {
 
 		public async Task<Response<Update>> GetLatestUpdateAsync (ulong id)
 		{
-			var updateUri = this.buildUri (Endpoints.UPDATES, replacements: new () {
+			return await this.SendEndpointAsync<Update> (Endpoints.UPDATES, HttpMethod.Get, replacements: new () {
 				{ "{r_id}", id.ToString () },
 				{ "{u_id}", "latest" }
 			});
-			var updateReq = this.prepareRequest (HttpMethod.Get, updateUri);
-
-			return await this.buildResponseAsync<Update> (updateReq);
 		}
 
 		public async Task<Response<Update>> GetUpdateAsync (ulong resId, ulong updateId)
 		{
-			var updateUri = this.buildUri (Endpoints.UPDATES, replacements: new () {
+			return await this.SendEndpointAsync<Update> (Endpoints.UPDATES, HttpMethod.Get, replacements: new () {
 				{ "{r_id}", resId.ToString () },
 				{ "{u_id}", updateId.ToString () }
 			});
-			var updateReq = this.prepareRequest (HttpMethod.Get, updateUri);
-
-			return await this.buildResponseAsync<Update> (updateReq);
 		}
 
 		public async Task<Response<Update>> DeleteUpdateAsync (ulong resId, ulong updateId)
 		{
-			var updateUri = this.buildUri (Endpoints.UPDATES, replacements: new () {
+			return await this.SendEndpointAsync<Update> (Endpoints.UPDATES, HttpMethod.Delete, replacements: new () {
 				{ "{r_id}", resId.ToString () },
 				{ "{u_id}", updateId.ToString () }
 			});
-			var updateReq = this.prepareRequest (HttpMethod.Delete, updateUri);
-
-			return await this.buildResponseAsync<Update> (updateReq);
 		}
 
 		/*
@@ -451,35 +442,29 @@ namespace mcm4csharp.v1.Client {
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
-			var reviewUri = this.buildUri (Endpoints.REVIEWS, pathParams: opt, replacements: new () {
-				{ "{res_id}", id.ToString () },
-				{ "{rev_id}", "" }
-			});
-			var reviewReq = this.prepareRequest (HttpMethod.Get, reviewUri);
-
-			return await this.buildResponseAsync<Review []> (reviewReq);
+			return await this.SendEndpointAsync<Review []> (Endpoints.REVIEWS,
+									HttpMethod.Get,
+									pathParams: opt,
+									replacements: new () {
+										{ "{res_id}", id.ToString () },
+										{ "{rev_id}", "" }
+									});
 		}
 
 		public async Task<Response<Review>> GetResourceReviewAsync (ulong resId, ulong memberId)
 		{
-			var reviewUri = this.buildUri (Endpoints.REVIEWS, replacements: new () {
+			return await this.SendEndpointAsync<Review> (Endpoints.REVIEWS, HttpMethod.Get, replacements: new () {
 				{ "{res_id}", resId.ToString () },
 				{ "{rev_id}", "members/" + memberId.ToString () }
 			});
-			var reviewReq = this.prepareRequest (HttpMethod.Get, reviewUri);
-
-			return await this.buildResponseAsync<Review> (reviewReq);
 		}
 
 		public async Task<Response<string>> RespondReviewAsync (ulong resId, ulong revId, ResponseContent content)
 		{
-			var reviewUri = this.buildUri (Endpoints.REVIEWS, replacements: new () {
+			return await this.SendEndpointAsync<string> (Endpoints.REVIEWS, HttpMethod.Patch, replacements: new () {
 				{ "{res_id}", resId.ToString () },
 				{ "{rev_id}", revId.ToString () }
-			});
-			var reviewReq = this.prepareRequest (HttpMethod.Patch, reviewUri, content);
-
-			return await this.buildResponseAsync<string> (reviewReq);
+			}, body: content);
 		}
 
 		/*
@@ -490,24 +475,21 @@ namespace mcm4csharp.v1.Client {
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
-			var purchUri = this.buildUri (Endpoints.PURCHASES, pathParams: opt, replacements: new () {
-				{ "{r_id}", id.ToString () },
-				{ "{p_id}", "" }
-			});
-			var purchReq = this.prepareRequest (HttpMethod.Get, purchUri);
-
-			return await this.buildResponseAsync<Purchase []> (purchReq);
+			return await this.SendEndpointAsync<Purchase []> (Endpoints.PURCHASES,
+									  HttpMethod.Get,
+									  pathParams: opt,
+									  replacements: new () {
+										  { "{r_id}", id.ToString () },
+										  { "{p_id}", "" }
+									  });
 		}
 
 		public async Task<Response<Purchase>> GetPurchaseAsync (ulong resId, ulong purchId)
 		{
-			var purchUri = this.buildUri (Endpoints.PURCHASES, replacements: new () {
+			return await this.SendEndpointAsync<Purchase> (Endpoints.PURCHASES, HttpMethod.Get, replacements: new () {
 				{ "{r_id}", resId.ToString () },
 				{ "{p_id}", purchId.ToString () }
 			});
-			var purchReq = this.prepareRequest (HttpMethod.Get, purchUri);
-
-			return await this.buildResponseAsync<Purchase> (purchReq);
 		}
 
 		/*
@@ -518,46 +500,37 @@ namespace mcm4csharp.v1.Client {
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
-			var licUri = this.buildUri (Endpoints.LICENSES, pathParams: opt, replacements: new () {
-				{ "{r_id}", id.ToString () },
-				{ "{l_id}", "" }
-			});
-			var licReq = this.prepareRequest (HttpMethod.Get, licUri);
-
-			return await this.buildResponseAsync<License []> (licReq);
+			return await this.SendEndpointAsync<License []> (Endpoints.LICENSES,
+								       HttpMethod.Get,
+								       pathParams: opt,
+								       replacements: new () {
+									       { "{r_id}", id.ToString () },
+									       { "{l_id}", "" }
+								       });
 		}
 
 		public async Task<Response<ulong>> IssueLicenseAsync (ulong id, LicenseContent content)
 		{
-			var licUri = this.buildUri (Endpoints.LICENSES, replacements: new () {
+			return await this.SendEndpointAsync<ulong> (Endpoints.LICENSES, HttpMethod.Post, replacements: new () {
 				{ "{r_id}", id.ToString () },
 				{ "{l_id}", "" }
 			});
-			var licReq = this.prepareRequest (HttpMethod.Post, licUri, content);
-
-			return await this.buildResponseAsync<ulong> (licReq);
 		}
 
 		public async Task<Response<License>> GetResourceLicenseAsync (ulong resId, ulong licId)
 		{
-			var licUri = this.buildUri (Endpoints.LICENSES, replacements: new () {
+			return await this.SendEndpointAsync<License> (Endpoints.LICENSES, HttpMethod.Get, replacements: new () {
 				{ "{r_id}", resId.ToString () },
 				{ "{l_id}", licId.ToString () }
 			});
-			var licReq = this.prepareRequest (HttpMethod.Get, licUri);
-
-			return await this.buildResponseAsync<License> (licReq);
 		}
 
 		public async Task<Response<string>> ModifyLicenseAsync (ulong resId, ulong licId, LicenseContent content)
 		{
-			var licUri = this.buildUri (Endpoints.LICENSES, replacements: new () {
+			return await this.SendEndpointAsync<string> (Endpoints.LICENSES, HttpMethod.Patch, replacements: new () {
 				{ "{r_id}", resId.ToString () },
 				{ "{l_id}", licId.ToString () }
-			});
-			var licReq = this.prepareRequest (HttpMethod.Patch, licUri, content);
-
-			return await this.buildResponseAsync<string> (licReq);
+			}, body: content);
 		}
 
 		public async Task<Response<License>> GetResourceLicenseMemberAsync (ulong resId, ulong memId, ulong? nonce, ulong? timestamp)
@@ -566,13 +539,13 @@ namespace mcm4csharp.v1.Client {
 				{ "nonce", nonce.Value.ToString() },
 				{ "timestamp", timestamp.Value.ToString() }
 			} : null;
-			var licUri = this.buildUri (Endpoints.LICENSES, pathParams: opt, replacements: new () {
-				{ "{r_id}", resId.ToString () },
-				{ "{l_id}", "members/" + memId.ToString () }
-			});
-			var licReq = this.prepareRequest (HttpMethod.Get, licUri);
-
-			return await this.buildResponseAsync<License> (licReq);
+			return await this.SendEndpointAsync<License> (Endpoints.LICENSES,
+								      HttpMethod.Get,
+								      pathParams: opt,
+								      replacements: new () {
+									      { "{r_id}", resId.ToString () },
+									      { "{l_id}", "members/" + memId.ToString () }
+								      });
 		}
 
 		/*
@@ -583,39 +556,39 @@ namespace mcm4csharp.v1.Client {
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
-			var downUri = this.buildUri (Endpoints.DOWNLOADS, pathParams: opt, replacements: new () {
-				{ "{r_id}", id.ToString () },
-				{ "{id}", "" }
-			});
-			var downReq = this.prepareRequest (HttpMethod.Get, downUri);
-
-			return await this.buildResponseAsync<Download []> (downReq);
+			return await this.SendEndpointAsync<Download []> (Endpoints.DOWNLOADS,
+									  HttpMethod.Get,
+									  pathParams: opt,
+									  replacements: new () {
+										  { "{r_id}", id.ToString () },
+										  { "{id}", "" }
+									  });
 		}
 
 		public async Task<Response<Download []>> GetDownloadsMemberAsync (ulong resId, ulong memId, Sortable? sortingOptions = null)
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
-			var downUri = this.buildUri (Endpoints.DOWNLOADS, pathParams: opt, replacements: new () {
-				{ "{r_id}", resId.ToString () },
-				{ "{id}", "members/" + memId.ToString () }
-			});
-			var downReq = this.prepareRequest (HttpMethod.Get, downUri);
-
-			return await this.buildResponseAsync<Download []> (downReq);
+			return await this.SendEndpointAsync<Download []> (Endpoints.DOWNLOADS,
+									  HttpMethod.Get,
+									  pathParams: opt,
+									  replacements: new () {
+										  { "{r_id}", resId.ToString () },
+										  { "{id}", "members/" + memId.ToString () }
+									  });
 		}
 
 		public async Task<Response<Download []>> GetDownloadsVersionAsync (ulong resId, ulong memId, Sortable? sortingOptions = null)
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
-			var downUri = this.buildUri (Endpoints.DOWNLOADS, pathParams: opt, replacements: new () {
-				{ "{r_id}", resId.ToString () },
-				{ "{id}", "versions/" + memId.ToString () }
-			});
-			var downReq = this.prepareRequest (HttpMethod.Get, downUri);
-
-			return await this.buildResponseAsync<Download []> (downReq);
+			return await this.SendEndpointAsync<Download []> (Endpoints.DOWNLOADS,
+									  HttpMethod.Get,
+									  pathParams: opt,
+									  replacements: new () {
+										  { "{r_id}", resId.ToString () },
+										  { "{id}", "versions/" + memId.ToString () }
+									  });
 		}
 
 		/*
@@ -626,24 +599,24 @@ namespace mcm4csharp.v1.Client {
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
-			var threadUri = this.buildUri (Endpoints.REPLIES, pathParams: opt, replacements: new () {
-				{ "{id}", "" },
-				{ "{id2}", "" },
-			});
-			var threadReq = this.prepareRequest (HttpMethod.Get, threadUri);
-
-			return await this.buildResponseAsync<Thread []> (threadReq);
+			return await this.SendEndpointAsync<Thread []> (Endpoints.REPLIES,
+									HttpMethod.Get,
+									pathParams: opt,
+									replacements: new () {
+										{ "{id}", "" },
+										{ "{id2}", "" }
+									});
 		}
 
 		public async Task<Response<Thread>> GetThreadAsync (ulong id)
 		{
-			var threadUri = this.buildUri (Endpoints.REPLIES, replacements: new () {
-				{ "{id}", id.ToString () },
-				{ "{id2}", "" },
-			});
-			var threadReq = this.prepareRequest (HttpMethod.Get, threadUri);
 
-			return await this.buildResponseAsync<Thread> (threadReq);
+			return await this.SendEndpointAsync<Thread> (Endpoints.REPLIES,
+									HttpMethod.Get,
+									replacements: new () {
+										{ "{id}", id.ToString () },
+										{ "{id2}", "" },
+									});
 		}
 
 		/*
@@ -654,26 +627,22 @@ namespace mcm4csharp.v1.Client {
 		{
 			var opt = sortingOptions.HasValue ? sortingOptions.Value.ToDict () : null;
 
-			var repliesUri = this.buildUri (Endpoints.REPLIES, pathParams: opt, replacements: new () {
-				{ "{id}", id.ToString () },
-				{ "{id2}", "replies" },
-			});
-			var repliesReq = this.prepareRequest (HttpMethod.Get, repliesUri);
-
-			return await this.buildResponseAsync<Data.Threads.Reply []> (repliesReq);
+			return await this.SendEndpointAsync<Data.Threads.Reply []> (Endpoints.REPLIES,
+										  HttpMethod.Get,
+										  pathParams: opt,
+										  replacements: new () {
+											  { "{id}", id.ToString () },
+											  { "{id2}", "replies" }
+										  });
 		}
 
 		public async Task<Response<ulong>> ReplyThreadAsync (ulong id, MessageContent content)
 		{
-			var repliesUri = this.buildUri (Endpoints.REPLIES, replacements: new () {
+			return await this.SendEndpointAsync<ulong> (Endpoints.REPLIES, HttpMethod.Post, replacements: new () {
 				{ "{id}", id.ToString () },
-				{ "{id2}", "replies" },
-			});
-			var repliesReq = this.prepareRequest (HttpMethod.Post, repliesUri, content);
-
-			return await this.buildResponseAsync<ulong> (repliesReq);
+				{ "{id2}", "replies" }
+			}, body: content);
 		}
-
 	}
 }
 
