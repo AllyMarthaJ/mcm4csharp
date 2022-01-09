@@ -19,11 +19,12 @@ namespace mcm4csharp.v1.Client {
 	public class ApiClient {
 		public readonly Uri BaseUri = new UriBuilder ("https://api.mc-market.org").Uri;
 
+		public bool WaitForTimeout { get; set; } = true;
+
 		private readonly HttpClient authClient;
 
 		private ulong lastRequest = 0;
 		private ulong lastReplyAfter = 0;
-		public bool WaitForTimeout { get; set; } = true;
 
 		public ApiClient (TokenType type, string token)
 		{
