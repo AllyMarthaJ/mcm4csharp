@@ -64,8 +64,6 @@ namespace mcm4csharp.v1.Client {
 
 			uriBuilder.Query = query.ToString ();
 
-			Console.WriteLine (uriBuilder.Uri.ToString ());
-
 			return uriBuilder.Uri;
 		}
 
@@ -157,6 +155,12 @@ namespace mcm4csharp.v1.Client {
 			return await this.buildResponseAsync<T> (requestReq);
 		}
 
+		/// <summary>
+		/// Safely sends a request and retries until not ratelimited.
+		/// </summary>
+		/// <typeparam name="T">Type of response to expect.</typeparam>
+		/// <param name="request">Async function to use to send the request.</param>
+		/// <returns>Request after rate limit.</returns>
 		public async Task<Response<T>> SafeRequestAsync<T>(Func<Task<Response<T>>> request)
 		{
 			Response<T> response;
