@@ -1,7 +1,10 @@
 ﻿using System;
 namespace mcm4csharp.v1.Client
 {
-	internal class Endpoints
+	/// <summary>
+	/// A class for storing the v1 MCM API endpoints. 
+	/// </summary>
+	public class Endpoints
 	{
 		public const string HEALTH = "v1/health";
 		public const string ALERTS = "v1/alerts";
