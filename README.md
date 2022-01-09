@@ -50,12 +50,12 @@ Furthermore, if you don't like the messy code that is waiting for a response in 
 For example
 ### Before
 ```cs
-var result = await cli.ModifyProfilePostAsync (id, msg);
+var result = await client.ModifyProfilePostAsync (id, msg);
 ```
 ### After
 ```cs			
-var func = async () => await cli.ModifyProfilePostAsync (id, msg);
-var result = await cli.SafeRequestAsync(func);
+var func = async () => await client.ModifyProfilePostAsync (id, msg);
+var result = await client.SafeRequestAsync(func);
 ```
 
 # Documentation
