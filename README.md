@@ -38,6 +38,26 @@ Since the API only returns `RetryAfterMilliseconds` when you're being ratelimite
 For endpoint that returns a result that can be sorted, sortable options are available under `v1.Client.SortableFields`; 
 please refer to the xml documentation for information on which field supports which endpoint. You will additionally find defaults there, too.
 
+# Ratelimiting
+The API wrapper comes with automagic delaying so that you don't accidental spam the API. You can turn this feature off by using:
+```cs
+client.WaitForTimeout = false;
+```
+This is **not** recommended! 
+
+Furthermore, if you don't like the messy code that is waiting for a response in the event you are ratelimited (since we delay *after* you're ratelimited), use the `SafeRequestAsync` method.
+
+For example
+### Before
+```cs
+var result = await cli.ModifyProfilePostAsync (id, msg);
+```
+### After
+```cs			
+var func = async () => await cli.ModifyProfilePostAsync (id, msg);
+var result = await cli.SafeRequestAsync(func);
+```
+
 # Documentation
 This project has a Doxyfile availale for you to build documentation.
 
