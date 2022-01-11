@@ -8,6 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\mcm4csharp\mcm4csharp.csproj" />
+    <ProjectReference Include="..\..\mcm4csharp\mcm4csharp.csproj" />
   </ItemGroup>
 </Project>
