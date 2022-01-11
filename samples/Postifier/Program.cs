@@ -52,7 +52,7 @@ public class Program {
 								Regex.Escape (postMessage) :
 								"Error: " + modifyResult.Error.Message;
 
-				Console.WriteLine ($"[{DateTime.Now.ToShortTimeString ()}] [{postId}] {suffix}");
+				Console.WriteLine ($"[{DateTime.Now.ToLongTimeString ()}] [{postId}] {suffix}");
 
 				await Task.Delay (delaySeconds * 1000);
 			}
