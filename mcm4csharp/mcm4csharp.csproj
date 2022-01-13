@@ -16,6 +16,8 @@
     <None Remove="v1\Data\Threads\" />
     <None Remove="v1\Client\" />
     <None Remove="v1\Data\Content\" />
+    <None Remove="v1\Eventful\" />
+    <None Remove="v1\Eventful\Providers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="v1\" />
@@ -27,5 +29,7 @@
     <Folder Include="v1\Data\Threads\" />
     <Folder Include="v1\Client\" />
     <Folder Include="v1\Data\Content\" />
+    <Folder Include="v1\Eventful\" />
+    <Folder Include="v1\Eventful\Providers\" />
   </ItemGroup>
 </Project>
