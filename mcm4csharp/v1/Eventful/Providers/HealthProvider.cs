@@ -4,6 +4,10 @@ using mcm4csharp.v1.Data.Content;
 
 namespace mcm4csharp.v1.Eventful.Providers
 {
+	/// <summary>
+	/// <para>Subscription provider which tracks the APIs health.</para>
+	/// <para>Intended use is example only, does not respect (un-)subscription.</para>
+	/// </summary>
 	public sealed class HealthProvider : ISubscriptionProvider<int, string> {
 		private string? healthTracker = null;
 
