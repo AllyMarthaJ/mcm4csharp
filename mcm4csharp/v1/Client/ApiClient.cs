@@ -5,6 +5,7 @@ using System.Net.Http.Json;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Web;
+using mcm4csharp.v1.Data;
 using mcm4csharp.v1.Data.Alerts;
 using mcm4csharp.v1.Data.Content;
 using mcm4csharp.v1.Data.Conversations;
